@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -64,7 +63,11 @@ class LoginView extends GetView<LoginController> {
                           TextButton(
                             onPressed: () {},
                             child: Text("Forgot Password?",
-                                style: TextStyle(color: Colors.white70)),
+                                style: TextStyle(
+                                  color: Colors.white70,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: "Poppins",
+                                )),
                           ),
                         ],
                       ),
@@ -89,8 +92,10 @@ class LoginView extends GetView<LoginController> {
                                   children: [
                                     Text("SIGN IN",
                                         style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold)),
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: "Poppins",
+                                        )),
                                     SizedBox(width: 8),
                                     Icon(Icons.arrow_right_alt,
                                         color: Colors.black),
@@ -105,7 +110,10 @@ class LoginView extends GetView<LoginController> {
                       TextButton(
                         onPressed: () {},
                         child: Text("I don’t have an account? Sign up",
-                            style: TextStyle(color: Colors.white70)),
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontFamily: "Poppins",
+                            )),
                       ),
                     ],
                   ),
