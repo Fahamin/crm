@@ -7,7 +7,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final String image;
 
-  const CustomAppBar({super.key, required this.title,required this.image});
+  const CustomAppBar({super.key, required this.title, required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +17,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           height: 55,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/pic/appbarbg.png"),
+              image: AssetImage("assets/images/appbarbg.png"),
               // Local asset image
               fit: BoxFit.cover, // Cover the entire container
             ),
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(6),
             // Optional: Rounded corners
             boxShadow: [
               BoxShadow(
@@ -36,25 +36,42 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(6.0),
                 child: Image.asset(
-                  "assets/images/pic/navapharma.png", // Path to the image
-                  width: 200,
+                  "assets/images/navapharma.png", // Path to the image
+                  width: 130,
                   fit: BoxFit.cover, // Adjusts how the image fits
                 ),
               ),
-              Text(title,style: TextStyle(
-                color: Colors.white,
-                fontFamily: "Poppins"
-              ),),
               Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 5),
+                padding: EdgeInsets.symmetric(horizontal: 6),
+                child: Icon(Icons.notifications,
+                    color: Colors.white), // Background color for default image
+              ),
+              SizedBox(
+                width: 100, // Set the maximum width you want for the text
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: "Poppins",
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis, // Adds '...' if the text overflows
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 6),
                 child: CircleAvatar(
                   radius: 15,
                   backgroundImage: NetworkImage(image),
-                  onBackgroundImageError: (_, __) {}, // Default icon
-                  backgroundColor: Colors.grey[400], // Prevents errors from crashing the app
-                  child: Icon(Icons.person, color: Colors.white), // Background color for default image
+                  onBackgroundImageError: (_, __) {},
+                  // Default icon
+                  backgroundColor: Colors.grey[400],
+                  // Prevents errors from crashing the app
+                  child: Icon(Icons.person,
+                      color:
+                          Colors.white), // Background color for default image
                 ),
               ),
             ],
