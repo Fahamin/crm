@@ -1,5 +1,6 @@
 import 'package:crm/app/wigets/colors.dart';
 import 'package:crm/app/wigets/fedback.dart';
+import 'package:crm/app/wigets/image_slider.dart';
 import 'package:crm/app/wigets/information.dart';
 import 'package:crm/app/wigets/redflag.dart';
 import 'package:flutter/material.dart';
@@ -22,22 +23,15 @@ class HomeView extends GetView<HomeController> {
         child: Column(
           children: [
             SizedBox(height: 30),
-            CustomAppBar(title: "Dr.Mrkhddddddddddddddddddddan", image: "imagelink"),
+            CustomAppBar(
+                title: "Dr.Mrkhddddddddddddddddddddan", image: "imagelink"),
             InkWell(onTap: () {}, child: FeedBack()),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [Infobank(), Redflag()],
             ),
             Spacer(),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: SvgPicture.asset(
-                "assets/images/banner.svg",
-                width: 100, // Set size as needed
-                height: 100,
-                fit: BoxFit.contain,
-              ),
-            ),
+            BannerSlider(),
           ],
         ),
       ),
