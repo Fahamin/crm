@@ -32,11 +32,13 @@ class BannerSlider extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding:  EdgeInsets.symmetric(vertical: 12.0),
-                  child: Image.asset(
-                    controller.imagePaths[index % controller.imagePaths.length],
-                    width: 150,
-                    height: 50,
-                  ),
+                  child: SizedBox(
+                    height: 50, // Keep height fixed
+                    child: Image.asset(
+                      controller.imagePaths[index % controller.imagePaths.length],
+                      fit: BoxFit.contain, // Ensures the image does not stretch
+                    ),
+                  )
                 );
               },
             ),

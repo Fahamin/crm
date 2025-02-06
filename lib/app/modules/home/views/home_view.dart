@@ -28,7 +28,10 @@ class HomeView extends GetView<HomeController> {
             InkWell(onTap: () {}, child: FeedBack()),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [Infobank(), Redflag()],
+              children: [
+                InkWell(onTap: () {}, child: Infobank()),
+                InkWell(onTap: () {}, child: Redflag())
+              ],
             ),
             Spacer(),
             BannerSlider(),
