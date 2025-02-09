@@ -11,12 +11,15 @@ class FeedBack extends StatelessWidget {
       child: Container(
           height: 200,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            image: DecorationImage(
-              image: AssetImage("assets/images/fed.png"), // Local asset image
-              fit: BoxFit.cover, // Covers the entire container
-            ),
-          ),
+              borderRadius: BorderRadius.all(Radius.circular(12)),
+              gradient: LinearGradient(
+                colors: [
+                  Color(0xFF034da0).withAlpha(128), // 50% opacity
+                  Color(0xFFFFFFFF).withAlpha(25), // 10% opacity// Darker Blue
+                ],
+                begin: Alignment.topCenter, // Start position
+                end: Alignment.bottomCenter, // End position
+              )),
           child: Center(
               child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

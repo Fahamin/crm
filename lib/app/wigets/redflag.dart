@@ -12,11 +12,13 @@ class Redflag extends StatelessWidget {
         height: 230,
           width: 150,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            image: DecorationImage(
-              image: AssetImage("assets/images/infobg.png"), // Local asset image
-              fit: BoxFit.cover, // Covers the entire container
-            ),
+            borderRadius: BorderRadius.all(Radius.circular(12)),
+            gradient: LinearGradient(colors: [
+              Color(0xFF034EA2).withOpacity(0.5), // 50% opacity
+              Color(0xFFFFFFFF).withOpacity(0.1),
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight)
           ),
           child: Center(
               child: Column(

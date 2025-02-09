@@ -9,15 +9,18 @@ class Infobank extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        height: 230,
+          height: 230,
           width: 150,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            image: DecorationImage(
-              image: AssetImage("assets/images/redbg.png"), // Local asset image
-              fit: BoxFit.cover, // Covers the entire container
-            ),
-          ),
+              borderRadius: BorderRadius.all(Radius.circular(12)),
+              gradient: LinearGradient(
+                colors: [
+                  Color(0xFF874295).withAlpha(128), // 50% opacity
+                  Color(0xFFFFFFFF).withAlpha(25), // 10% opacity// Darker Blue
+                ],
+                begin: Alignment.topRight, // Start position
+                end: Alignment.bottomLeft, // End position
+              )),
           child: Center(
               child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

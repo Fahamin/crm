@@ -29,8 +29,8 @@ class HomeView extends GetView<HomeController> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                InkWell(onTap: () {}, child: Infobank()),
-                InkWell(onTap: () {}, child: Redflag())
+                 Infobank(),
+                 Redflag()
               ],
             ),
             Spacer(),

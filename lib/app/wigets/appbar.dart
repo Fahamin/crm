@@ -16,22 +16,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: Container(
           height: 55,
           decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/appbarbg.png"),
-              // Local asset image
-              fit: BoxFit.cover, // Cover the entire container
-            ),
-            borderRadius: BorderRadius.circular(6),
-            // Optional: Rounded corners
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black26,
-                blurRadius: 8,
-                spreadRadius: 2,
-                offset: Offset(2, 4),
-              ),
-            ],
-          ),
+              borderRadius: BorderRadius.all(Radius.circular(12)),
+              gradient: LinearGradient(
+                colors: [
+                  Color(0xFF84A1C2), // 50% opacity
+                  Color(0xFFFFFFFF).withAlpha(25),
+                  Color(0xFF9121F3).withAlpha(110), // 10% opacity// Darker Blue
+                  // 10% opacity// Darker Blue
+                ],
+                begin: Alignment.centerLeft, // Start position
+                end: Alignment.centerRight, // End position
+              )),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
