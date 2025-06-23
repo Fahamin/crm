@@ -6,14 +6,19 @@ class ImageController extends GetxController {
   final double scrollSpeed = 50.0; // Adjust speed
 
   final List<String> imagePaths = [
+    "assets/images/slide/e.png",
     "assets/images/slide/a.png",
     "assets/images/slide/b.png",
+
     "assets/images/slide/c.png",
+
     "assets/images/slide/d.png",
-    "assets/images/slide/e.png",
-    "assets/images/slide/f.png",
-    "assets/images/slide/g.png",
     "assets/images/slide/h.png",
+
+    "assets/images/slide/f.png",
+
+    "assets/images/slide/g.png",
+
   ];
 
   @override

@@ -1,43 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../modules/utils/text_utils.dart';
+import 'colors.dart';
+
 class FeedBack extends StatelessWidget {
-  const FeedBack({super.key});
+  var imaage;
+  var title;
+  var des;
+
+  FeedBack(this.imaage, this.title, this.des, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-          height: 200,
+          height: 180,
+          width: 400,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(12)),
-              gradient: LinearGradient(
-                colors: [
-                  Color(0xFF034da0).withAlpha(128), // 50% opacity
-                  Color(0xFFFFFFFF).withAlpha(25), // 10% opacity// Darker Blue
-                ],
-                begin: Alignment.topCenter, // Start position
-                end: Alignment.bottomCenter, // End position
-              )),
-          child: Center(
-              child: Column(
+              color: cardbg),
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SvgPicture.asset(
-                "assets/images/mes.svg",
-                width: 100, // Set size as needed
-                height: 100,
-                fit: BoxFit.contain,
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child:
+                    SizedBox(width: 48, height: 48, child: Image.asset(imaage)),
               ),
-              Text("FeedBack",
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "Poppins",
-                  )),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: textNormal(title, Colors.white, 14.0),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: textNormal(des, Colors.white, 12.0),
+              ),
             ],
-          ))),
+          )),
     );
   }
 }

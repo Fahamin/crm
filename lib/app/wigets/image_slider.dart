@@ -9,18 +9,9 @@ class BannerSlider extends StatelessWidget {
     final ImageController controller = Get.put(ImageController());
 
     return SizedBox(
-      height: 60, // Ensure Stack has a defined height
+      height: 40, // Ensure Stack has a defined height
       child: Stack(
         children: [
-          // Background Color
-          Positioned.fill(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(6)),
-                color: Color(0xFFAAD2FF), // Ensure color is correctly assigned
-              ),
-            ),
-          ),
           // Marquee Image Banner
           Align(
             alignment: Alignment.center,
@@ -35,8 +26,9 @@ class BannerSlider extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 12.0),
                     child: Image.asset(
                       controller.imagePaths[index % controller.imagePaths.length],
-                      width: 120,
-                      height: 50,
+                      width: 70,
+                      height: 40,
+                      fit: BoxFit.contain,
                     ),
                   );
                 },
