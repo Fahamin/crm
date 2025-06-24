@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 Widget textNormal(String value, Color color, double size) {
   return Text(value,
+      textAlign: TextAlign.center,
       style: TextStyle(color: color, fontFamily: "Poppins", fontSize: size));
 }
 

@@ -1,124 +1,135 @@
 import 'dart:ui';
 
-import 'package:crm/app/wigets/colors.dart';
-import 'package:crm/app/wigets/custom_text_filed.dart';
+import 'package:crm/core/text_utils.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
+import '../../../../wigets/colors.dart';
+import '../../../../wigets/custom_text_filed.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
-  const LoginView({super.key});
+  LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: background,
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Center(
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10), // Blur effect
-              child: Container(
-                padding: EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.1),
-                  // Transparent with opacity
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.white.withOpacity(0.2)),
-                ),
-                child: Form(
-                  key: controller.formKey,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        "Welcome back!",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 28,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: "Poppins",
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16.0),
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: MediaQuery.of(context).size.height - 32, // 32 = 16*2 padding
+          ),
+          child: Center(
+            child: Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.all(20),
+                  child: Form(
+                    key: controller.formKey,
+                    child: Column(
+                      children: [
+                        spaceHeight(35.0),
+                        Text(
+                          "Login here",
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Poppins",
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 25),
+                        spaceHeight(35.0),
 
-                      // Email Input
-                      CustomTextField(
+                        SizedBox(
+                          width: 250,
+                          child: Center(
+                            child: textNormal(
+                              "Welcome back you've been missed!",
+                              Colors.white,
+                              20.0,
+                            ),
+                          ),
+                        ),
+                        spaceHeight(35.0),
+
+                        CustomTextField(
                           controller: controller.emailController,
-                          hintText: "Email"),
-                      SizedBox(height: 15),
+                          hintText: "Email",
+                        ),
+                        SizedBox(height: 15),
 
-                      CustomTextField(
+                        CustomTextField(
                           controller: controller.passwordController,
                           hintText: "Password",
-                          obscureText: true),
-                      // Password Input + Forgot Password
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          TextButton(
-                            onPressed: () {},
-                            child: Text("Forgot Password?",
+                          obscureText: true,
+                        ),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Forgot Password?",
                                 style: TextStyle(
-                                  color: Colors.white70,
+                                  color: Colors.blue,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: "Poppins",
-                                )),
-                          ),
-                        ],
-                      ),
-
-                      SizedBox(height: 15),
-
-                      // Sign In Button
-                      Obx(() {
-                        return controller.isLoading.value
-                            ? CircularProgressIndicator()
-                            : ElevatedButton(
-                                onPressed: controller.login,
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(30)),
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 50, vertical: 14),
                                 ),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text("SIGN IN",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: "Poppins",
-                                        )),
-                                    SizedBox(width: 8),
-                                    Icon(Icons.arrow_right_alt,
-                                        color: Colors.black),
-                                  ],
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        SizedBox(height: 15),
+
+                        Obx(() {
+                          return controller.isLoading.value
+                              ? CircularProgressIndicator()
+                              : ElevatedButton(
+                            onPressed: controller.login,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 50,
+                                vertical: 14,
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Login",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "Poppins",
+                                  ),
                                 ),
-                              );
-                      }),
-
-                      SizedBox(height: 15),
-
-                      // Sign Up Option
-                      TextButton(
-                        onPressed: () {},
-                        child: Text("I don’t have an account? Sign up",
-                            style: TextStyle(
-                              color: Colors.white70,
-                              fontFamily: "Poppins",
-                            )),
-                      ),
-                    ],
+                              ],
+                            ),
+                          );
+                        }),
+                      ],
+                    ),
                   ),
                 ),
-              ),
+                // Use Expanded or flexible space instead of Spacer
+                spaceHeight(40.0),
+                Center(
+                  child: Image.asset(
+                    "assets/images/np.png",
+                    width: 130,
+                  ),
+                ),
+                 // Add some bottom padding
+              ],
             ),
           ),
         ),

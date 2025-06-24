@@ -1,4 +1,4 @@
-import 'package:crm/app/modules/utils/image_controller.dart';
+import 'package:crm/core/image_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';

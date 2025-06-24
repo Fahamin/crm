@@ -1,4 +1,4 @@
-import 'package:crm/app/modules/utils/text_utils.dart';
+import 'package:crm/core/text_utils.dart';
 import 'package:flutter/material.dart';
 
 class DrAppbar extends StatelessWidget implements PreferredSizeWidget {

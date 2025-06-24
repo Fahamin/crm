@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../modules/utils/text_utils.dart';
+import '../../core/text_utils.dart';
 import 'colors.dart';
 
 class FeedBack extends StatelessWidget {
