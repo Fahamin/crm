@@ -27,16 +27,15 @@ class FeedBack extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsets.all(8.0),
-                child:
-                    SizedBox(width: 48, height: 48, child: Image.asset(imaage)),
+                child: SizedBox(width: 48, height: 48, child: Image.asset(imaage)),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
-                child: textNormal(title, Colors.white, 14.0),
+                child: textNormalStart(title, Colors.white, 14.0),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
-                child: textNormal(des, Colors.white, 12.0),
+                child: textNormalStart(des, Colors.white, 12.0),
               ),
             ],
           )),

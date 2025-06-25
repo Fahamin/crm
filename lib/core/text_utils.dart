@@ -6,6 +6,22 @@ Widget textNormal(String value, Color color, double size) {
       style: TextStyle(color: color, fontFamily: "Poppins", fontSize: size));
 }
 
+Widget textNormalBold(String value, Color color, double size) {
+  return Text(value,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+          color: color,
+          fontWeight: FontWeight.bold,
+          fontFamily: "Poppins",
+          fontSize: size));
+}
+
+Widget textNormalEnd(String value, Color color, double size) {
+  return Text(value,
+      textAlign: TextAlign.end,
+      style: TextStyle(color: color, fontFamily: "Poppins", fontSize: size));
+}
+
 Widget textNormalStart(String value, Color color, double size) {
   return Text(value,
       style: TextStyle(color: color, fontFamily: "Poppins", fontSize: size));

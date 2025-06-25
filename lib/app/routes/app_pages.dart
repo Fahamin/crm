@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/doctor_profile/bindings/doctor_profile_binding.dart';
 import '../modules/doctor_profile/views/doctor_profile_view.dart';
+import '../modules/feedback/bindings/feedback_binding.dart';
+import '../modules/feedback/views/feedback_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -12,7 +14,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.DOCTOR_PROFILE;
+  static String INITIAL = Routes.LOGIN;
 
   static final routes = [
     GetPage(
@@ -27,8 +29,13 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.DOCTOR_PROFILE,
-      page: () => const DoctorProfileView(),
+      page: () => DoctorProfileView(),
       binding: DoctorProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.FEEDBACK,
+      page: () => FeedbackView(),
+      binding: FeedbackBinding(),
     ),
   ];
 }

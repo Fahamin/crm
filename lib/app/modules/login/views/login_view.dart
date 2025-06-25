@@ -2,11 +2,13 @@ import 'dart:ui';
 
 import 'package:crm/core/text_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../../../wigets/colors.dart';
 import '../../../../wigets/custom_button.dart';
 import '../../../../wigets/custom_text_filed.dart';
+import '../../../routes/app_pages.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -14,6 +16,7 @@ class LoginView extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: background,
       body: SingleChildScrollView(
@@ -86,7 +89,10 @@ class LoginView extends GetView<LoginController> {
                               ? CircularProgressIndicator()
                               : CustomButton(
                                   "Login",
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    //  controller.login();
+                                    Get.toNamed(Routes.HOME);
+                                  },
                                 );
                         }),
                       ],
