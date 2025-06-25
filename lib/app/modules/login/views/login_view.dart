@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../wigets/colors.dart';
+import '../../../../wigets/custom_button.dart';
 import '../../../../wigets/custom_text_filed.dart';
 import '../controllers/login_controller.dart';
 
@@ -19,7 +20,8 @@ class LoginView extends GetView<LoginController> {
         padding: EdgeInsets.all(16.0),
         child: ConstrainedBox(
           constraints: BoxConstraints(
-            minHeight: MediaQuery.of(context).size.height - 32, // 32 = 16*2 padding
+            minHeight:
+                MediaQuery.of(context).size.height - 32, // 32 = 16*2 padding
           ),
           child: Center(
             child: Column(
@@ -41,7 +43,6 @@ class LoginView extends GetView<LoginController> {
                           ),
                         ),
                         spaceHeight(35.0),
-
                         SizedBox(
                           width: 250,
                           child: Center(
@@ -53,19 +54,16 @@ class LoginView extends GetView<LoginController> {
                           ),
                         ),
                         spaceHeight(35.0),
-
                         CustomTextField(
                           controller: controller.emailController,
                           hintText: "Email",
                         ),
                         SizedBox(height: 15),
-
                         CustomTextField(
                           controller: controller.passwordController,
                           hintText: "Password",
                           obscureText: true,
                         ),
-
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
@@ -82,39 +80,14 @@ class LoginView extends GetView<LoginController> {
                             ),
                           ],
                         ),
-
                         SizedBox(height: 15),
-
                         Obx(() {
                           return controller.isLoading.value
                               ? CircularProgressIndicator()
-                              : ElevatedButton(
-                            onPressed: controller.login,
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blue,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 50,
-                                vertical: 14,
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
+                              : CustomButton(
                                   "Login",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: "Poppins",
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
+                                  onPressed: () {},
+                                );
                         }),
                       ],
                     ),
@@ -128,7 +101,7 @@ class LoginView extends GetView<LoginController> {
                     width: 130,
                   ),
                 ),
-                 // Add some bottom padding
+                // Add some bottom padding
               ],
             ),
           ),

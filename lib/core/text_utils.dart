@@ -6,6 +6,11 @@ Widget textNormal(String value, Color color, double size) {
       style: TextStyle(color: color, fontFamily: "Poppins", fontSize: size));
 }
 
+Widget textNormalStart(String value, Color color, double size) {
+  return Text(value,
+      style: TextStyle(color: color, fontFamily: "Poppins", fontSize: size));
+}
+
 Widget spaceHeight(var value) {
   return SizedBox(height: value);
 }

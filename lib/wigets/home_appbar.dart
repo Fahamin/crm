@@ -35,17 +35,33 @@ class DrAppbar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 6),
+                padding:  EdgeInsets.symmetric(horizontal: 6),
                 child: CircleAvatar(
                   radius: 15,
-                  backgroundImage: NetworkImage(image),
-                  onBackgroundImageError: (_, __) {},
-                  // Default icon
-                  backgroundColor: Colors.grey[400],
-                  // Prevents errors from crashing the app
-                  child: Icon(Icons.person,
-                      color:
-                          Colors.white), // Background color for default image
+                  backgroundColor: Colors.grey[400], // Background color when no image
+                  child: ClipOval(
+                    child: Image.network(
+                      image, // Your network image URL
+                      fit: BoxFit.cover,
+                      width: 30, // Double the radius
+                      height: 30,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Icon(
+                          Icons.person,
+                          color: Colors.white,
+                          size: 20, // Slightly smaller than the avatar
+                        );
+                      },
+                      loadingBuilder: (context, child, loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return  Icon(
+                          Icons.person,
+                          color: Colors.white,
+                          size: 20,
+                        );
+                      },
+                    ),
+                  ),
                 ),
               )
             ],

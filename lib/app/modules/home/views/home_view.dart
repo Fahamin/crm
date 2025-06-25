@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 import '../../../../wigets/colors.dart';
-import '../../../../wigets/custom_appbar.dart';
+import '../../../../wigets/home_appbar.dart';
 import '../../../../wigets/fedback.dart';
 import '../../../../wigets/image_slider.dart';
 import '../controllers/home_controller.dart';
