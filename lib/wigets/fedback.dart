@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../core/text_utils.dart';
-import 'colors.dart';
+import '../core/colors.dart';
 
 class FeedBack extends StatelessWidget {
   var imaage;

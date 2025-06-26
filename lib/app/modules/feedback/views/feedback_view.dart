@@ -5,7 +5,7 @@ import 'package:radio_group_v2/utils/radio_group_decoration.dart';
 import 'package:radio_group_v2/widgets/views/radio_group.dart';
 
 import '../../../../core/text_utils.dart';
-import '../../../../wigets/colors.dart';
+import '../../../../core/colors.dart';
 import '../../../../wigets/custom_button.dart';
 import '../../../../wigets/custom_text_filed.dart';
 import '../../../../wigets/doctor_info.dart';

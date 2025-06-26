@@ -1,5 +1,5 @@
 import 'package:crm/core/text_utils.dart';
-import 'package:crm/wigets/colors.dart';
+import 'package:crm/core/colors.dart';
 import 'package:flutter/material.dart';
 
 class DoctorInfo extends StatelessWidget {

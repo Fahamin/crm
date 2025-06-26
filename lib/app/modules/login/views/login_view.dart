@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-import '../../../../wigets/colors.dart';
+import '../../../../core/colors.dart';
 import '../../../../wigets/custom_button.dart';
 import '../../../../wigets/custom_text_filed.dart';
 import '../../../routes/app_pages.dart';
