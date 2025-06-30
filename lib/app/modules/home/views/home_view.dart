@@ -1,8 +1,14 @@
+import 'dart:convert';
+
+import 'package:crm/wigets/option_dialog.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
+import 'package:http/http.dart' as http;
 
 import '../../../../core/colors.dart';
 import '../../../../wigets/home_appbar.dart';
@@ -40,7 +46,20 @@ class HomeView extends GetView<HomeController> {
                             ""
                                 "Share your thoughts, report issues, or suggest improvements to help us make the app better for you.")),
                     InkWell(
-                        onTap: () {},
+                        onTap: () async {
+                          Get.toNamed(Routes.TABPAGE);
+                          /*showDialog(
+                              context: context,
+                              builder: (context) => InformationDialog(
+                                    onJournal: () {
+                                      Get.toNamed(Routes.JOURNAL);
+
+                                    },
+                                    onAnatomy: () {
+                                      Get.toNamed(Routes.MYHUMAN);
+                                    },
+                                  ));*/
+                        },
                         child: FeedBack(
                             "assets/images/infoi.png",
                             "Information Bank",
@@ -82,3 +101,4 @@ class HomeView extends GetView<HomeController> {
     );
   }
 }
+
