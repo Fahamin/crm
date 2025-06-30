@@ -7,9 +7,9 @@ import 'package:http/http.dart' as http;
 
 import '../../../../core/model/human_model.dart';
 
-class MyhumanController extends GetxController {
+class AnatomyController extends GetxController {
   var isLoading = true.obs;
-  var collection = <MyhumanContent>[].obs;
+  var collection = <AnatomyContent>[].obs;
   var errorMessage = ''.obs;
 
   @override
@@ -53,7 +53,7 @@ class MyhumanController extends GetxController {
         final data = json.decode(response.body);
         final List<dynamic> items = data['myhuman'];
         collection.assignAll(
-            items.map((json) => MyhumanContent.fromJson(json)).toList());
+            items.map((json) => AnatomyContent.fromJson(json)).toList());
       } else {
         throw Exception('Failed to load collection: ${response.statusCode}');
       }

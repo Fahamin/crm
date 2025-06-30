@@ -1,4 +1,4 @@
-class MyhumanContent {
+class AnatomyContent {
   final String contentId;
   final String title;
   final String thumbnailUrl;
@@ -9,7 +9,7 @@ class MyhumanContent {
   final List<Team>? teams;
   final ContentFlags flags;
 
-  MyhumanContent({
+  AnatomyContent({
     required this.contentId,
     required this.title,
     required this.thumbnailUrl,
@@ -21,8 +21,8 @@ class MyhumanContent {
     required this.flags,
   });
 
-  factory MyhumanContent.fromJson(Map<String, dynamic> json) {
-    return MyhumanContent(
+  factory AnatomyContent.fromJson(Map<String, dynamic> json) {
+    return AnatomyContent(
       contentId: json['content_id'],
       title: json['content_title'] ?? 'Untitled',
       thumbnailUrl: json['content_thumbnail_url'],

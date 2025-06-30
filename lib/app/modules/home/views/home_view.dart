@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:crm/wigets/option_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -46,35 +47,18 @@ class HomeView extends GetView<HomeController> {
                                 "Share your thoughts, report issues, or suggest improvements to help us make the app better for you.")),
                     InkWell(
                         onTap: () async {
+                          Get.toNamed(Routes.TABPAGE);
+                          /*showDialog(
+                              context: context,
+                              builder: (context) => InformationDialog(
+                                    onJournal: () {
+                                      Get.toNamed(Routes.JOURNAL);
 
-                          Get.toNamed(Routes.MYHUMAN);
-
-                          /*const yourDeveloperKey =
-                              'a4b94ae1ebe92f83f477b40ccc1bb85074fe8b95';
-                          const yourDeveloperSecret =
-                              '0572c034f3bd931ab332a22710c79e3803fb7d01';
-
-                          final tokenData = await fetchBioDigitalToken(
-                            clientId: yourDeveloperKey,
-                            clientSecret: yourDeveloperSecret,
-                          );
-
-                          print('Access Token: ${tokenData['access_token']}');
-
-                          final storage = FlutterSecureStorage();
-
-                          await storage.write(
-                              key: 'biodigital_token',
-                              value: tokenData['access_token']);
-
-                          //write
-                          String? token =
-                              await storage.read(key: 'biodigital_token');
-
-                         fetchMyHumanCollection(tokenData['access_token']);
-
-                          print(
-                              'Expires in: ${tokenData['expires_in']} seconds');*/
+                                    },
+                                    onAnatomy: () {
+                                      Get.toNamed(Routes.MYHUMAN);
+                                    },
+                                  ));*/
                         },
                         child: FeedBack(
                             "assets/images/infoi.png",
@@ -118,81 +102,3 @@ class HomeView extends GetView<HomeController> {
   }
 }
 
-Future<void> fetchMyHumanCollection(var token) async {
-  if (token == null) {
-    print('Failed to get access token');
-    return;
-  }
-
-  try {
-    final response = await http.get(
-      Uri.parse(
-          'https://apis.biodigital.com/services/v2/content/collections/myhuman'),
-      headers: {
-        'Authorization': 'Bearer $token',
-        'Accept': 'application/json',
-      },
-    );
-
-    if (response.statusCode == 200) {
-      final data = json.decode(response.body);
-      print('MyHuman Collection: $data');
-      // Process your data here
-    } else {
-      print('API Error: ${response.statusCode} - ${response.body}');
-    }
-  } catch (e) {
-    print('API Exception: $e');
-  }
-}
-
-Future<Map<String, dynamic>> fetchBioDigitalToken({
-  required String clientId,
-  required String clientSecret,
-}) async {
-  // API endpoint
-  const tokenEndpoint = 'https://apis.biodigital.com/oauth2/v2/token';
-
-  try {
-    // Step 1: Prepare the Basic Auth credentials
-    final credentials = '$clientId:$clientSecret';
-    final bytes = utf8.encode(credentials);
-    final base64Str = base64.encode(bytes);
-
-    // Step 2: Prepare the request headers
-    final headers = {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json;charset=UTF-8',
-      'Authorization': 'Basic $base64Str',
-    };
-
-    // Step 3: Prepare the request body
-    final body = jsonEncode({
-      'grant_type': 'client_credentials',
-      'scope': 'contentapi',
-    });
-
-    // Step 4: Make the POST request
-    final response = await http.post(
-      Uri.parse(tokenEndpoint),
-      headers: headers,
-      body: body,
-    );
-
-    // Step 5: Handle the response
-    if (response.statusCode == 200) {
-      // Success - parse the JSON response
-      return jsonDecode(response.body);
-    } else {
-      // Error - parse the error response
-      final errorResponse = jsonDecode(response.body);
-      throw Exception(
-          'Error ${errorResponse['error_status_code']}: ${errorResponse['error_message']}');
-    }
-  } catch (e) {
-    if (kDebugMode) {
-      print('Error fetching token: $e');
-    }
-    rethrow;
-  }
-}
