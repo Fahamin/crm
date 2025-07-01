@@ -1,6 +1,5 @@
 part of 'app_pages.dart';
 
-
 abstract class Routes {
   Routes._();
   static const LOGIN = _Paths.LOGIN;
@@ -11,6 +10,7 @@ abstract class Routes {
   static const DMODELVIEW = _Paths.DMODELVIEW;
   static const JOURNAL = _Paths.JOURNAL;
   static const TABPAGE = _Paths.TABPAGE;
+  static const PUBMED = _Paths.PUBMED;
 }
 
 abstract class _Paths {
@@ -23,4 +23,5 @@ abstract class _Paths {
   static const DMODELVIEW = '/modelview3d';
   static const JOURNAL = '/journal';
   static const TABPAGE = '/tabpage';
+  static const PUBMED = '/pubmed';
 }

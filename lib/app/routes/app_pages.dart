@@ -1,7 +1,9 @@
-import 'package:crm/app/modules/anatomy/bindings/anatomy_binding.dart';
-import 'package:crm/app/modules/anatomy/views/anatomy_view.dart';
 import 'package:get/get.dart';
 
+import '../modules/Pubmed/bindings/pubmed_binding.dart';
+import '../modules/Pubmed/views/pubmed_view.dart';
+import '../modules/anatomy/bindings/anatomy_binding.dart';
+import '../modules/anatomy/views/anatomy_view.dart';
 import '../modules/doctor_profile/bindings/doctor_profile_binding.dart';
 import '../modules/doctor_profile/views/doctor_profile_view.dart';
 import '../modules/feedback/bindings/feedback_binding.dart';
@@ -60,8 +62,13 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.TABPAGE,
-      page: () =>  TabpageView(),
+      page: () => TabpageView(),
       binding: TabpageBinding(),
+    ),
+    GetPage(
+      name: _Paths.PUBMED,
+      page: () =>  PubmedView(),
+      binding: PubmedBinding(),
     ),
   ];
 }
