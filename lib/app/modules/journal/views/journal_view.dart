@@ -41,7 +41,6 @@ class JournalView extends GetView<JournalController> {
           children: [
             spaceHeight(10.0),
 
-            // Solution 1: Use Expanded with ListView instead of SingleChildScrollView
             Expanded(
               child: ListView(
                 children: [
@@ -63,7 +62,7 @@ class JournalView extends GetView<JournalController> {
                         final item = departments[index];
                         return InkWell(
                           onTap: () {
-                            Get.toNamed(Routes.PUBMED, arguments: item['name']);
+                            Get.toNamed(Routes.EUROPMC, arguments: item['name']);
                           },
                           child: Container(
                             decoration: BoxDecoration(

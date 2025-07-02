@@ -22,6 +22,11 @@ Widget textNormalEnd(String value, Color color, double size) {
       style: TextStyle(color: color, fontFamily: "Poppins", fontSize: size));
 }
 
+Widget textNormalStartMax1(String value, Color color, double size) {
+  return Text(value,maxLines: 1,
+      style: TextStyle(color: color, fontFamily: "Poppins", fontSize: size));
+}
+
 Widget textNormalStart(String value, Color color, double size) {
   return Text(value,
       style: TextStyle(color: color, fontFamily: "Poppins", fontSize: size));

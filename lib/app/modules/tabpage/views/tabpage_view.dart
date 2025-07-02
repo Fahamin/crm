@@ -39,7 +39,7 @@ class _TabpageViewState extends State<TabpageView>
         backgroundColor: cardbg,
         title:  Text(
           'Information Bank',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         bottom: PreferredSize(

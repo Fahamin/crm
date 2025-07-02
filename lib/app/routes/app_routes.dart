@@ -11,6 +11,7 @@ abstract class Routes {
   static const JOURNAL = _Paths.JOURNAL;
   static const TABPAGE = _Paths.TABPAGE;
   static const PUBMED = _Paths.PUBMED;
+  static const EUROPMC = _Paths.EUROPMC;
 }
 
 abstract class _Paths {
@@ -24,4 +25,5 @@ abstract class _Paths {
   static const JOURNAL = '/journal';
   static const TABPAGE = '/tabpage';
   static const PUBMED = '/pubmed';
+  static const EUROPMC = '/europmc';
 }

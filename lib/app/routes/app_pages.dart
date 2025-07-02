@@ -6,6 +6,8 @@ import '../modules/anatomy/bindings/anatomy_binding.dart';
 import '../modules/anatomy/views/anatomy_view.dart';
 import '../modules/doctor_profile/bindings/doctor_profile_binding.dart';
 import '../modules/doctor_profile/views/doctor_profile_view.dart';
+import '../modules/europmc/bindings/europmc_binding.dart';
+import '../modules/europmc/views/europmc_view.dart';
 import '../modules/feedback/bindings/feedback_binding.dart';
 import '../modules/feedback/views/feedback_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -67,8 +69,13 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.PUBMED,
-      page: () =>  PubmedView(),
+      page: () => PubmedView(),
       binding: PubmedBinding(),
+    ),
+    GetPage(
+      name: _Paths.EUROPMC,
+      page: () =>  EuropmcView(),
+      binding: EuropmcBinding(),
     ),
   ];
 }
