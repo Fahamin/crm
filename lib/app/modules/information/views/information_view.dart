@@ -9,10 +9,10 @@ import '../../../../wigets/image_slider.dart';
 import '../../../../wigets/profile_appbar.dart';
 import '../../../../wigets/profile_image.dart';
 import '../../../routes/app_pages.dart';
-import '../controllers/journal_controller.dart';
+import '../controllers/information_controller.dart';
 
-class JournalView extends GetView<JournalController> {
-  JournalView({super.key});
+class InformationView extends GetView<InformationController> {
+  InformationView({super.key});
 
   final ImageController cc = Get.put(ImageController());
   final List<Map<String, String>> departments = [
@@ -62,7 +62,8 @@ class JournalView extends GetView<JournalController> {
                         final item = departments[index];
                         return InkWell(
                           onTap: () {
-                            Get.toNamed(Routes.EUROPMC, arguments: item['name']);
+                            Get.toNamed(Routes.JOURNALCHOSE, arguments: item['name']);
+
                           },
                           child: Container(
                             decoration: BoxDecoration(

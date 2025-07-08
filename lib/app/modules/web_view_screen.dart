@@ -38,7 +38,7 @@ class _WebViewPageState extends State<WebViewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppbarTitle("Article Details"),
+        appBar: AppbarTitle("Details"),
         body: Stack(
             children: [
               WebViewWidget(controller: _controller),

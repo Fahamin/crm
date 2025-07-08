@@ -33,6 +33,7 @@ class FeedBack extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: textNormalStart(title, Colors.white, 14.0),
               ),
+              spaceHeight(5.0),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: textNormalStart(des, Colors.white, 12.0),
