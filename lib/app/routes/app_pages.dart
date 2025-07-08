@@ -88,12 +88,12 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.BOOKS,
-      page: () => const BooksView(),
+      page: () =>  BooksView(),
       binding: BooksBinding(),
     ),
     GetPage(
       name: _Paths.PDF_READ,
-      page: () => const PdfReadView(),
+      page: () =>  PdfReadView(),
       binding: PdfReadBinding(),
     ),
   ];
