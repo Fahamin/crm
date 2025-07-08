@@ -1,13 +1,8 @@
 import 'package:crm/app/modules/anatomy/views/anatomy_view.dart';
+import 'package:crm/app/modules/information/views/information_view.dart';
 import 'package:crm/core/colors.dart';
 import 'package:crm/core/text_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import '../../journal/views/journal_view.dart';
-import '../controllers/tabpage_controller.dart';
-
-
 class TabpageView extends StatefulWidget {
   @override
   _TabpageViewState createState() => _TabpageViewState();
@@ -39,7 +34,7 @@ class _TabpageViewState extends State<TabpageView>
         backgroundColor: cardbg,
         title:  Text(
           'Information Bank',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         bottom: PreferredSize(
@@ -66,7 +61,7 @@ class _TabpageViewState extends State<TabpageView>
       body: TabBarView(
         controller: _tabController,
         children: [
-          JournalView(), // ✅ Replaced the recursive call
+          InformationView(), // ✅ Replaced the recursive call
           AnatomyView(),
         ],
       ),

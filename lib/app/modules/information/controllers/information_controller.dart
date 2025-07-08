@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-class JournalController extends GetxController {
-  //TODO: Implement JournalController
+class InformationController extends GetxController {
+  //TODO: Implement InformationController
 
   final count = 0.obs;
   @override

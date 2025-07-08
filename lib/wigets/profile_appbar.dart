@@ -28,7 +28,7 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
               SizedBox(
                   width: 100, // Set the maximum width you want for the text
-                  child: textNormal(title, Colors.white, 16.2)),
+                  child: textNormalBold(title, Colors.white, 16.2)),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 6),
                 child: InkWell(

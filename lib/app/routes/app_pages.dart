@@ -1,18 +1,27 @@
-import 'package:crm/app/modules/anatomy/bindings/anatomy_binding.dart';
-import 'package:crm/app/modules/anatomy/views/anatomy_view.dart';
 import 'package:get/get.dart';
 
+import '../journal_chosse.dart';
+import '../modules/Pubmed/bindings/pubmed_binding.dart';
+import '../modules/Pubmed/views/pubmed_view.dart';
+import '../modules/anatomy/bindings/anatomy_binding.dart';
+import '../modules/anatomy/views/anatomy_view.dart';
+import '../modules/books/bindings/books_binding.dart';
+import '../modules/books/views/books_view.dart';
 import '../modules/doctor_profile/bindings/doctor_profile_binding.dart';
 import '../modules/doctor_profile/views/doctor_profile_view.dart';
+import '../modules/europmc/bindings/europmc_binding.dart';
+import '../modules/europmc/views/europmc_view.dart';
 import '../modules/feedback/bindings/feedback_binding.dart';
 import '../modules/feedback/views/feedback_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
-import '../modules/journal/bindings/journal_binding.dart';
-import '../modules/journal/views/journal_view.dart';
+import '../modules/information/bindings/information_binding.dart';
+import '../modules/information/views/information_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/model_3d_screen.dart';
+import '../modules/pdf_read/bindings/pdf_read_binding.dart';
+import '../modules/pdf_read/views/pdf_read_view.dart';
 import '../modules/tabpage/bindings/tabpage_binding.dart';
 import '../modules/tabpage/views/tabpage_view.dart';
 
@@ -54,14 +63,38 @@ class AppPages {
       page: () => MyhumanDetailView(),
     ),
     GetPage(
-      name: _Paths.JOURNAL,
-      page: () => JournalView(),
-      binding: JournalBinding(),
+      name: _Paths.INFORMATION,
+      page: () => InformationView(),
+      binding: InformationBinding(),
     ),
     GetPage(
       name: _Paths.TABPAGE,
-      page: () =>  TabpageView(),
+      page: () => TabpageView(),
       binding: TabpageBinding(),
+    ),
+    GetPage(
+      name: _Paths.PUBMED,
+      page: () => PubmedView(),
+      binding: PubmedBinding(),
+    ),
+    GetPage(
+      name: _Paths.EUROPMC,
+      page: () => EuropmcView(),
+      binding: EuropmcBinding(),
+    ),
+    GetPage(
+      name: _Paths.JOURNALCHOSE,
+      page: () => JournalChosse(),
+    ),
+    GetPage(
+      name: _Paths.BOOKS,
+      page: () => const BooksView(),
+      binding: BooksBinding(),
+    ),
+    GetPage(
+      name: _Paths.PDF_READ,
+      page: () => const PdfReadView(),
+      binding: PdfReadBinding(),
     ),
   ];
 }

@@ -43,27 +43,16 @@ class HomeView extends GetView<HomeController> {
                         child: FeedBack(
                             "assets/images/mes.png",
                             "FeedBack",
-                            ""
+
                                 "Share your thoughts, report issues, or suggest improvements to help us make the app better for you.")),
                     InkWell(
                         onTap: () async {
                           Get.toNamed(Routes.TABPAGE);
-                          /*showDialog(
-                              context: context,
-                              builder: (context) => InformationDialog(
-                                    onJournal: () {
-                                      Get.toNamed(Routes.JOURNAL);
-
-                                    },
-                                    onAnatomy: () {
-                                      Get.toNamed(Routes.MYHUMAN);
-                                    },
-                                  ));*/
                         },
                         child: FeedBack(
                             "assets/images/infoi.png",
                             "Information Bank",
-                            ""
+
                                 "Find all the details you need in one convenient place, organized, easy to access, and always available when you need them..")),
                     InkWell(
                         onTap: () {
@@ -85,7 +74,7 @@ class HomeView extends GetView<HomeController> {
                         child: FeedBack(
                             "assets/images/flag.png",
                             "Red Flag",
-                            ""
+
                                 "Notice an issue or unusual activity? Use the red flag feature to report it instantly so we can respond promptly..")),
                     SizedBox(height: 20),
                   ],
