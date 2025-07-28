@@ -1,16 +1,8 @@
-# crm
+Doctor App 
 
-A new Flutter project.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![App Screenshot](https://github.com/Fahamin/crm/blob/56991e7b38404ab99271c755d52cff3ce71c91d4/WhatsApp%20Image%202025-07-28%20at%2010.20.02_c7d7f75c.jpg)
+![App Screenshot](https://github.com/Fahamin/crm/blob/master/WhatsApp%20Image%202025-07-28%20at%2010.20.03_39704d32.jpg?raw=true)
+![App Screenshot](https://github.com/Fahamin/crm/blob/master/WhatsApp%20Image%202025-07-28%20at%2010.20.04_2ef0bb56.jpg?raw=true)
+![App Screenshot](https://github.com/Fahamin/crm/blob/56991e7b38404ab99271c755d52cff3ce71c91d4/WhatsApp%20Image%202025-07-28%20at%2010.20.02_c7d7f75c.jpg)
+![App Screenshot](https://github.com/Fahamin/crm/blob/56991e7b38404ab99271c755d52cff3ce71c91d4/WhatsApp%20Image%202025-07-28%20at%2010.20.02_c7d7f75c.jpg)
