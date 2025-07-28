@@ -10,7 +10,7 @@ import '../../web_view_screen.dart';
 import '../controllers/books_controller.dart';
 
 class BooksView extends GetView<BooksController> {
-  const BooksView({super.key});
+   BooksView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +20,17 @@ class BooksView extends GetView<BooksController> {
     return Scaffold(
       appBar: AppbarTitle("${query} Books"),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding:  EdgeInsets.all(8.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Obx(() {
               if (controller.isLoading.value) {
-                return const CircularProgressIndicator();
+                return  Center(child: CircularProgressIndicator());
               }
               if (controller.books.isEmpty) {
-                return const Text("No results");
+                return  Text("No results");
               }
               return Expanded(
                 child: ListView.builder(
@@ -51,27 +53,26 @@ class BooksView extends GetView<BooksController> {
                     final iaId = book['ia'];
 
                     return Card(
-                      margin: const EdgeInsets.symmetric(
+                      margin:  EdgeInsets.symmetric(
                           vertical: 8, horizontal: 4),
                       elevation: 2,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       child: ListTile(
-                          contentPadding: const EdgeInsets.all(10),
+                          contentPadding:  EdgeInsets.all(10),
                           leading: imageUrl != null
                               ? Image.network(imageUrl,
                                   width: 60, fit: BoxFit.cover)
-                              : const Icon(Icons.book, size: 60),
+                              :  Icon(Icons.book, size: 60),
                           title: Text(title,
                               style:
-                                  const TextStyle(fontWeight: FontWeight.bold)),
+                                   TextStyle(fontWeight: FontWeight.bold)),
                           subtitle: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text("Author: $authors"),
                               Text("Publisher: $publisher"),
                               Text("First Published: $year"),
-                              Text("Pdf available: $iaId"),
                             ],
                           ),
                           onTap: () {
