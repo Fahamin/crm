@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 
-import '../journal_chosse.dart';
 import '../modules/Pubmed/bindings/pubmed_binding.dart';
 import '../modules/Pubmed/views/pubmed_view.dart';
 import '../modules/anatomy/bindings/anatomy_binding.dart';
@@ -17,6 +16,7 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/information/bindings/information_binding.dart';
 import '../modules/information/views/information_view.dart';
+import '../modules/journal_chosse.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/model_3d_screen.dart';
@@ -24,6 +24,8 @@ import '../modules/pdf_read/bindings/pdf_read_binding.dart';
 import '../modules/pdf_read/views/pdf_read_view.dart';
 import '../modules/tabpage/bindings/tabpage_binding.dart';
 import '../modules/tabpage/views/tabpage_view.dart';
+import '../modules/video/bindings/video_binding.dart';
+import '../modules/video/views/video_view.dart';
 
 part 'app_routes.dart';
 
@@ -88,13 +90,18 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.BOOKS,
-      page: () =>  BooksView(),
+      page: () => BooksView(),
       binding: BooksBinding(),
     ),
     GetPage(
       name: _Paths.PDF_READ,
-      page: () =>  PdfReadView(),
+      page: () => PdfReadView(),
       binding: PdfReadBinding(),
+    ),
+    GetPage(
+      name: _Paths.VIDEO,
+      page: () => const VideoView(),
+      binding: VideoBinding(),
     ),
   ];
 }

@@ -7,12 +7,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import '../../../../core/colors.dart';
-import '../../../../wigets/home_appbar.dart';
-import '../../../../wigets/fedback.dart';
-import '../../../../wigets/image_slider.dart';
-import '../../../../wigets/red_dialog.dart';
-import '../wigets/appbar_title.dart';
+import '../../../../../core/colors.dart';
+import '../../../../../wigets/home_appbar.dart';
+import '../../../../../wigets/fedback.dart';
+import '../../../../../wigets/image_slider.dart';
+import '../../../../../wigets/red_dialog.dart';
+import '../../wigets/appbar_title.dart';
 
 class JournalChosse extends StatelessWidget {
   JournalChosse({super.key});
@@ -35,24 +35,20 @@ class JournalChosse extends StatelessWidget {
                         onTap: () {
                           Get.toNamed(Routes.EUROPMC, arguments: Get.arguments);
                         },
-                        child: FeedBack(
-                            "assets/images/journal.png",
-                            "Journal", "Organize thoughts, track progress, and document daily reflections or research insights in one place.")),
+                        child: FeedBack("assets/images/journal.png", "Journal",
+                            "Organize thoughts, track progress, and document daily reflections or research insights in one place.")),
                     InkWell(
                         onTap: () async {
                           Get.toNamed(Routes.BOOKS, arguments: Get.arguments);
-
                         },
-                        child: FeedBack(
-                            "assets/images/book.png",
-                            "Book ", "Browse, read, or manage a collection of books—track reading progress, take notes, and explore summaries.")),
+                        child: FeedBack("assets/images/book.png", "Book ",
+                            "Browse, read, or manage a collection of books—track reading progress, take notes, and explore summaries.")),
                     InkWell(
                         onTap: () {
-
+                          Get.toNamed(Routes.VIDEO, arguments: Get.arguments);
                         },
-                        child: FeedBack(
-                            "assets/images/vid.png",
-                            "Video", "Access, watch, and manage video content—save favorites, track viewing history, and explore new topics.")),
+                        child: FeedBack("assets/images/vid.png", "Video",
+                            "Access, watch, and manage video content—save favorites, track viewing history, and explore new topics.")),
                     SizedBox(height: 20),
                   ],
                 ),
