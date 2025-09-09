@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import '../videomodel.dart';
+import '../model/video_model.dart';
 
 
 
@@ -12,7 +12,7 @@ class VideoService {
 
   static Future<List<VideoModel>> searchVideos(String query) async {
     final url =
-        '$_baseUrl/search?part=snippet&q=$query&type=video&maxResults=10&key=$_apiKey';
+        '$_baseUrl/search?part=snippet&q=$query&type=video&maxResults=150&key=$_apiKey';
 
     final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {

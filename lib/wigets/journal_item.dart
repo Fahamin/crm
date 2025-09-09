@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../app/modules/web_view_screen.dart';
-import '../core/model/europe_PMC_article.dart';
+import '../data/model/journal_model.dart';
 
 class JournalItem extends StatelessWidget {
   EuropePMCArticle model;

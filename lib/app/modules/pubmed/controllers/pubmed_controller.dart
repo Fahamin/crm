@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../../../../core/pubmed_serive.dart';
+import '../../../../data/remote/pubmed_serive.dart';
 
 class PubmedController extends GetxController {
   final PubMedService _service = PubMedService();

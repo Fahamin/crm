@@ -9,6 +9,8 @@ import '../../wigets/appbar_title.dart';
 class MyhumanDetailView extends StatelessWidget {
   final String contentUrl = Get.arguments;
 
+   MyhumanDetailView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

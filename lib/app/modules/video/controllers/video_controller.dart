@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-import '../../../../data/remote/service.dart';
-import '../../../../data/videomodel.dart';
+import '../../../../data/remote/video_service.dart';
+import '../../../../data/model/video_model.dart';
 
 class VideoController extends GetxController {
   var videos = <VideoModel>[].obs;

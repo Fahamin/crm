@@ -5,7 +5,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
-import '../../../../core/model/human_model.dart';
+import '../../../../data/model/anatomy_model.dart';
 
 class AnatomyController extends GetxController {
   var isLoading = true.obs;

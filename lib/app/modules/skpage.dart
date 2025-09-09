@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:http/http.dart' as http;
 
-import '../../core/model/skmodel.dart';
+import '../../data/model/skmodel.dart';
 import '../routes/app_pages.dart';
 
 class SketchfabListScreen extends StatefulWidget {
@@ -54,7 +54,6 @@ class _SketchfabListScreenState extends State<SketchfabListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Sketchfab Models')),
       body: isLoading
           ? Center(child: CircularProgressIndicator())
           : ListView.builder(

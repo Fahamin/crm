@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import '../../../../core/model/europe_PMC_article.dart';
+import '../../../../data/model/journal_model.dart';
 
 class EuropmcController extends GetxController {
   var articles = <EuropePMCArticle>[].obs;
