@@ -88,8 +88,7 @@ class LoginView extends GetView<LoginController> {
                               : CustomButton(
                                   "Login",
                                   onPressed: () {
-                                    //  controller.login();
-                                    Get.toNamed(Routes.HOME);
+                                     controller.login();
                                   },
                                 );
                         }),

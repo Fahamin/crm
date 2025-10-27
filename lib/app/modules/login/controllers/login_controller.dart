@@ -25,9 +25,10 @@ class LoginController extends GetxController {
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
-        Get.snackbar("Success", "Login Successful");
+        //Get.snackbar("Success", "Login Successful");
         Get.offAllNamed(Routes.HOME);
       } else {
+        debugPrint(response.body);
         Get.snackbar("Error", "Invalid credentials");
       }
     } catch (e) {

@@ -12,7 +12,10 @@ class AuthService {
   }) async {
     try {
       var response = await http.post(
-        Uri.parse("login"),
+        Uri.parse("${ApiConfig.BASEURL}${ApiConfig.getNpl}CRM_USERS_LOGIN.PHP"),
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
         body: {
           "email": email,
           "password": password,
@@ -33,14 +36,16 @@ class AuthService {
   }) async {
     try {
       var response = await http.post(
-        Uri.parse("${ApiConfig.BASEURL}${ApiConfig.getNpl}CRM_USERS_REG.PHP"),
-        headers: {"Content-Type": "application/json"}, // ✅ এখানে header ঠিক আছে
-        body: jsonEncode({
+        Uri.parse("${ApiConfig.BASEURL}${ApiConfig.getNpl}CMR_USERS_REG.PHP"),
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: {
           "name": name,
           "email": email,
           "password": password,
-          "user_type": userType,
-        }),
+          "user_type": userType.toString(), // ✅ must be String
+        },
       );
 
       return response;
@@ -49,5 +54,6 @@ class AuthService {
       return Future.error(e);
     }
   }
+
 
 }
