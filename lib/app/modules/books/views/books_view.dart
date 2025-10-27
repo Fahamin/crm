@@ -1,17 +1,12 @@
-import 'package:crm/core/text_utils.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../../../../wigets/appbar_title.dart';
-import '../../../routes/app_pages.dart';
 import '../../details_book_view.dart';
-import '../../pdf_read/views/pdf_read_view.dart';
-import '../../web_view_screen.dart';
 import '../controllers/books_controller.dart';
 
 class BooksView extends GetView<BooksController> {
-  BooksView({super.key});
+  const BooksView({super.key});
 
   @override
   Widget build(BuildContext context) {

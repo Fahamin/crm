@@ -1,9 +1,8 @@
 import 'dart:convert';
-
 import 'package:crm/app/routes/app_pages.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
+import '../../../../data/remote/auth_service.dart';
 
 class LoginController extends GetxController {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -11,30 +10,28 @@ class LoginController extends GetxController {
   final TextEditingController passwordController = TextEditingController();
   var isLoading = false.obs;
 
+  var authService = Get.find<AuthService>();
+
   Future<void> login() async {
     if (!formKey.currentState!.validate()) return;
 
     isLoading.value = true;
 
     try {
-      var response = await http.post(
-        Uri.parse("https://yourapi.com/login"),
-        body: {
-          "email": emailController.text,
-          "password": passwordController.text,
-        },
+      final response = await authService.login(
+        email: emailController.text,
+        password: passwordController.text,
       );
 
       if (response.statusCode == 200) {
-        var data = jsonDecode(response.body);
+        final data = jsonDecode(response.body);
         Get.snackbar("Success", "Login Successful");
-
-        Get.toNamed(Routes.HOME);
+        Get.offAllNamed(Routes.HOME);
       } else {
         Get.snackbar("Error", "Invalid credentials");
       }
     } catch (e) {
-      Get.snackbar("Error", "Something went wrong");
+      Get.snackbar("Error", "Something went wrong: $e");
     } finally {
       isLoading.value = false;
     }

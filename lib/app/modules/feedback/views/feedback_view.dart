@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:radio_group_v2/utils/radio_group_decoration.dart';
-import 'package:radio_group_v2/widgets/views/radio_group.dart';
 
 import '../../../../core/text_utils.dart';
 import '../../../../core/colors.dart';
@@ -12,11 +10,10 @@ import '../../../../wigets/doctor_info.dart';
 import '../../../../wigets/image_slider.dart';
 import '../../../../wigets/profile_appbar.dart';
 import '../../../../wigets/profile_image.dart';
-import '../../../../wigets/text_with_border.dart';
 import '../controllers/feedback_controller.dart';
 
 class FeedbackView extends GetView<FeedbackController> {
-  FeedbackView({super.key});
+  const FeedbackView({super.key});
 
   @override
   Widget build(BuildContext context) {

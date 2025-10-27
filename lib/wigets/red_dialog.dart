@@ -3,18 +3,16 @@ import 'dart:ui';
 import 'package:crm/core/colors.dart';
 import 'package:crm/core/text_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class ConfirmationDialog extends StatelessWidget {
   final VoidCallback onYes;
   final VoidCallback onNo;
 
-  ConfirmationDialog({
-    Key? key,
+  const ConfirmationDialog({
+    super.key,
     required this.onYes,
     required this.onNo,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

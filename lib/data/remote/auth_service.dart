@@ -1,0 +1,53 @@
+import 'dart:convert';
+
+import 'package:flutter/cupertino.dart';
+import 'package:http/http.dart' as http;
+
+import '../../core/constant.dart';
+
+class AuthService {
+  Future<http.Response> login({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      var response = await http.post(
+        Uri.parse("login"),
+        body: {
+          "email": email,
+          "password": password,
+        },
+      );
+
+      return response;
+    } catch (e) {
+      return Future.error(e);
+    }
+  }
+
+  Future<http.Response> register({
+    required String name,
+    required String email,
+    required String password,
+    required int userType,
+  }) async {
+    try {
+      var response = await http.post(
+        Uri.parse("${ApiConfig.BASEURL}${ApiConfig.getNpl}CRM_USERS_REG.PHP"),
+        headers: {"Content-Type": "application/json"}, // ✅ এখানে header ঠিক আছে
+        body: jsonEncode({
+          "name": name,
+          "email": email,
+          "password": password,
+          "user_type": userType,
+        }),
+      );
+
+      return response;
+    } catch (e) {
+      debugPrint("Register API error: $e");
+      return Future.error(e);
+    }
+  }
+
+}

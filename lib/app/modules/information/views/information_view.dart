@@ -6,8 +6,6 @@ import 'package:get/get.dart';
 import '../../../../core/colors.dart';
 import '../../../../core/text_utils.dart';
 import '../../../../wigets/image_slider.dart';
-import '../../../../wigets/profile_appbar.dart';
-import '../../../../wigets/profile_image.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/information_controller.dart';
 

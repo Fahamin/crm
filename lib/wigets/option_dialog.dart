@@ -4,17 +4,16 @@ import 'package:crm/core/colors.dart';
 import 'package:crm/core/text_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class InformationDialog extends StatelessWidget {
   final VoidCallback onJournal;
   final VoidCallback onAnatomy;
 
-  InformationDialog({
-    Key? key,
+  const InformationDialog({
+    super.key,
     required this.onJournal,
     required this.onAnatomy,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

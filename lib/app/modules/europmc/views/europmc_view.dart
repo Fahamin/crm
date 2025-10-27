@@ -5,11 +5,10 @@ import 'package:get/get.dart';
 
 import '../../../../wigets/appbar_title.dart';
 import '../../../../wigets/journal_item.dart';
-import '../../web_view_screen.dart';
 import '../controllers/europmc_controller.dart';
 
 class EuropmcView extends GetView<EuropmcController> {
-  EuropmcView({super.key});
+  const EuropmcView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +20,7 @@ class EuropmcView extends GetView<EuropmcController> {
 
     return Scaffold(
       backgroundColor: background,
-      appBar:AppbarTitle("${query} Journal"),
+      appBar:AppbarTitle("$query Journal"),
       body: Obx(() {
         if (controller.isLoading.value) {
           return Center(child: CircularProgressIndicator());

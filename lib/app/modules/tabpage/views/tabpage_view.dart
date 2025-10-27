@@ -1,11 +1,11 @@
-import 'package:crm/app/modules/anatomy/views/anatomy_view.dart';
 import 'package:crm/app/modules/information/views/information_view.dart';
 import 'package:crm/core/colors.dart';
-import 'package:crm/core/text_utils.dart';
 import 'package:flutter/material.dart';
 
 import '../../skpage.dart';
 class TabpageView extends StatefulWidget {
+  const TabpageView({super.key});
+
   @override
   _TabpageViewState createState() => _TabpageViewState();
 }

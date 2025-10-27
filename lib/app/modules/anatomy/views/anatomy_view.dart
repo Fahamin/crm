@@ -7,7 +7,7 @@ import '../../../routes/app_pages.dart';
 import '../controllers/anatomy_controller.dart';
 
 class AnatomyView extends GetView<AnatomyController> {
-   AnatomyView({Key? key}) : super(key: key);
+   const AnatomyView({super.key});
 
   @override
   Widget build(BuildContext context) {

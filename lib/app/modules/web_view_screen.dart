@@ -7,7 +7,7 @@ import '../../wigets/appbar_title.dart';
 class WebViewPage extends StatefulWidget {
   final String url;
 
-  const WebViewPage({required this.url});
+  const WebViewPage({super.key, required this.url});
 
   @override
   State<WebViewPage> createState() => _WebViewPageState();

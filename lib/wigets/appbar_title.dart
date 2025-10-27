@@ -1,5 +1,4 @@
 import 'package:crm/core/text_utils.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../core/colors.dart';

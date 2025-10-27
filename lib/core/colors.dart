@@ -7,3 +7,5 @@ const Color appbargradi = Color(0x0084a1c2);
 const Color imagebg = Color(0xFFAAD2FF);
 
 const Color cardbg = Color(0xFF1B2538);
+const Color blue = Color(0xFF2196F3);
+const Color red = Color(0xFFE10E26);

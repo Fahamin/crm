@@ -1,8 +1,6 @@
 import 'package:crm/core/text_utils.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../app/modules/web_view_screen.dart';
 import '../data/model/journal_model.dart';
@@ -23,8 +21,8 @@ class JournalItem extends StatelessWidget {
           textNormalStart(model.title, Colors.white, 18.0),
           textNormalStart(model.journal, Colors.white, 16.0),
           spaceHeight(5.0),
-          textNormalStartMax1("Author: "+model.authorString, Colors.white, 13.0),
-          textNormalStartMax1("Pulished Year: "+model.pubYear, Colors.white, 13.0),
+          textNormalStartMax1("Author: ${model.authorString}", Colors.white, 13.0),
+          textNormalStartMax1("Pulished Year: ${model.pubYear}", Colors.white, 13.0),
           Row(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.end,

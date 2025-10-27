@@ -1,8 +1,6 @@
-import 'dart:ui';
 
 import 'package:crm/core/text_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/colors.dart';
@@ -12,7 +10,7 @@ import '../../../routes/app_pages.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
-  LoginView({super.key});
+  const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -99,8 +97,19 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                 ),
-                // Use Expanded or flexible space instead of Spacer
-                spaceHeight(40.0),
+
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    textNormalBold("Don't have an account?", Colors.blue, 14.0),
+                    TextButton(
+                      onPressed: () => Get.toNamed(Routes.REGISTRATION),
+                      child:  textNormalBold('Register',Colors.blue, 16.0),
+                    ),
+                  ],
+                ),
+
                 Center(
                   child: Image.asset(
                     "assets/images/np.png",

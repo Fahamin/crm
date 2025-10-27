@@ -1,7 +1,6 @@
 import 'package:crm/app/modules/web_view_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../data/model/book_model.dart';
 

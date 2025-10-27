@@ -24,9 +24,6 @@ class AnatomyController extends GetxController {
       errorMessage('');
 
       final tokenData = await fetchBioDigitalToken();
-      if (tokenData == null) {
-        throw Exception('Failed to get access token');
-      }
 
       final storage = FlutterSecureStorage();
 

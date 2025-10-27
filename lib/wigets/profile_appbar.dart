@@ -1,9 +1,7 @@
-import 'dart:ui';
 
 import 'package:crm/core/text_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../app/routes/app_pages.dart';
 
@@ -11,7 +9,7 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final String image;
 
-  ProfileAppBar({super.key, required this.title, required this.image});
+  const ProfileAppBar({super.key, required this.title, required this.image});
 
   @override
   Widget build(BuildContext context) {

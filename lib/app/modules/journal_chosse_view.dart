@@ -1,21 +1,14 @@
-import 'dart:convert';
 
 import 'package:crm/app/routes/app_pages.dart';
-import 'package:crm/wigets/option_dialog.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import '../../../../../core/colors.dart';
-import '../../../../../wigets/home_appbar.dart';
 import '../../../../../wigets/fedback.dart';
 import '../../../../../wigets/image_slider.dart';
-import '../../../../../wigets/red_dialog.dart';
 import '../../wigets/appbar_title.dart';
 
 class JournalChosse extends StatelessWidget {
-  JournalChosse({super.key});
+  const JournalChosse({super.key});
 
   @override
   Widget build(BuildContext context) {

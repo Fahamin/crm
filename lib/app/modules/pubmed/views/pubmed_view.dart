@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import '../controllers/pubmed_controller.dart';
 
 class PubmedView extends GetView<PubmedController> {
+  const PubmedView({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Get the passed search term from arguments
