@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import '../../pdfdownload/controllers/pdfdownload_controller.dart';
 import '../controllers/books_controller.dart';
 
 class BooksBinding extends Bindings {
@@ -7,6 +8,9 @@ class BooksBinding extends Bindings {
   void dependencies() {
     Get.lazyPut<BooksController>(
       () => BooksController(),
+    );
+    Get.lazyPut<PdfdownloadController>(
+          () => PdfdownloadController(),fenix: true
     );
   }
 }

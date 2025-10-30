@@ -1,3 +1,5 @@
+import 'package:crm/app/modules/pdf_read/views/pdf_read_view.dart';
+import 'package:crm/app/modules/pdfdownload/views/pdfdownload_view.dart';
 import 'package:crm/app/modules/web_view_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,7 +34,11 @@ class DetailsView extends StatelessWidget {
             if (book.previewLink != null)
               ElevatedButton(
                 onPressed: () {
-                  Get.to(() => WebViewPage(url: book.previewLink.toString()));
+                //  Get.to(() => WebViewPage(url: book.previewLink.toString()));
+                  //  Get.to(() => PdfReadView());
+                    Get.to(() => PdfdownloadView());
+
+
                 },
                 child: const Text("Preview Book"),
               )

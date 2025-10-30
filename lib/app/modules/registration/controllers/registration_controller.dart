@@ -15,7 +15,8 @@ class RegistrationController extends GetxController {
   var nameController = TextEditingController();
 
   var selectedValue = RxnString(); // RxnString = nullable reactive string
-var userType = 1;
+  var userType = 1;
+
   // Options for dropdown
   final List<String> options = ["Yes", "No"];
 

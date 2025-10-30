@@ -22,6 +22,8 @@ import '../modules/login/views/login_view.dart';
 import '../modules/model_3d_screen.dart';
 import '../modules/pdf_read/bindings/pdf_read_binding.dart';
 import '../modules/pdf_read/views/pdf_read_view.dart';
+import '../modules/pdfdownload/bindings/pdfdownload_binding.dart';
+import '../modules/pdfdownload/views/pdfdownload_view.dart';
 import '../modules/registration/bindings/registration_binding.dart';
 import '../modules/registration/views/registration_view.dart';
 import '../modules/tabpage/bindings/tabpage_binding.dart';
@@ -102,13 +104,19 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.VIDEO,
-      page: () =>  VideoView(),
+      page: () => VideoView(),
       binding: VideoBinding(),
     ),
     GetPage(
       name: _Paths.REGISTRATION,
-      page: () =>  RegistrationView(),
+      page: () => RegistrationView(),
       binding: RegistrationBinding(),
+    ),
+
+    GetPage(
+      name: _Paths.PDFDOWNLOAD,
+      page: () => const PdfdownloadView(),
+      binding: PdfdownloadBinding(),
     ),
   ];
 }

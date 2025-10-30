@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:crm/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 import '../../../../data/remote/auth_service.dart';
 
 class LoginController extends GetxController {
@@ -12,8 +13,30 @@ class LoginController extends GetxController {
 
   var authService = Get.find<AuthService>();
 
+
+  var allGranted = false.obs;
+
+  Future<void> requestPermissions() async {
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.camera,
+      Permission.storage,
+      Permission.location,
+      // আরও permission যোগ করো
+    ].request();
+
+    allGranted.value = statuses.values.every((status) => status.isGranted);
+
+    if (allGranted.value) {
+
+    }
+  }
+
+
   Future<void> login() async {
-    if (!formKey.currentState!.validate()) return;
+    if (!formKey.currentState!.validate()){
+      Get.snackbar("Error", "Invalid credentials");
+      return;
+    }
 
     isLoading.value = true;
 
@@ -25,7 +48,7 @@ class LoginController extends GetxController {
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
-        //Get.snackbar("Success", "Login Successful");
+        debugPrint(response.body);
         Get.offAllNamed(Routes.HOME);
       } else {
         debugPrint(response.body);

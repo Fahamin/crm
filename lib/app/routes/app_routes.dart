@@ -17,6 +17,8 @@ abstract class Routes {
   static const PDF_READ = _Paths.PDF_READ;
   static const VIDEO = _Paths.VIDEO;
   static const REGISTRATION = _Paths.REGISTRATION;
+  static const PDFDOWNLOADVIEW = _Paths.PDFDOWNLOADVIEW;
+  static const PDFDOWNLOAD = _Paths.PDFDOWNLOAD;
 }
 
 abstract class _Paths {
@@ -36,4 +38,6 @@ abstract class _Paths {
   static const PDF_READ = '/pdf-read';
   static const VIDEO = '/video';
   static const REGISTRATION = '/registration';
+  static const PDFDOWNLOADVIEW = '/pdfdownloadview';
+  static const PDFDOWNLOAD = '/pdfdownload';
 }
