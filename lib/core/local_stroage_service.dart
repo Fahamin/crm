@@ -17,11 +17,11 @@ class LocalStorageService {
 
   String? get userToken => _preferences?.getString('user_token');
 
-  Future<void> setUserId(String userId) async {
+  Future<void> setUserType(String userId) async {
     await _preferences?.setString('user_id', userId);
   }
 
-  String? get userId => _preferences?.getString('user_id');
+  String? get userType => _preferences?.getString('user_id');
 
   // App settings
   Future<void> setThemeMode(bool isDark) async {
