@@ -10,9 +10,9 @@ class VideoService {
   static const String _apiKey = 'AIzaSyCRu5PZeiPh84d5AEdJxx7_6Z5LQqWjqiI';
   static const String _baseUrl = 'https://www.googleapis.com/youtube/v3';
 
-  static Future<List<VideoModel>> searchVideos(String query) async {
+  static Future<List<VideoModel>> searchVideosByViews(String query) async {
     final url =
-        '$_baseUrl/search?part=snippet&q=$query&type=video&maxResults=150&key=$_apiKey';
+        '$_baseUrl/search?part=snippet&q=$query&type=video&maxResults=150&order=viewCount&key=$_apiKey';
 
     final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
@@ -21,7 +21,8 @@ class VideoService {
           .map((e) => VideoModel.fromJson(e))
           .toList();
     } else {
-      throw Exception("Failed to load videos");
+      throw Exception("Failed to load videos by views");
     }
   }
+
 }

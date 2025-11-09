@@ -10,7 +10,7 @@ class VideoController extends GetxController {
   void searchVideos(var que) async {
     isLoading(true);
     try {
-      videos.value = await VideoService.searchVideos(que);
+      videos.value = await VideoService.searchVideosByViews(que);
     } catch (e) {
       Get.snackbar("Error", e.toString());
     }
