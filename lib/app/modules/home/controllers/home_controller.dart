@@ -13,7 +13,7 @@ class HomeController extends GetxController {
     localStorageService.setUserType("1");
   }
 
-  String? get userType => localStorageService.userType??"1";
+  String? get userType => localStorageService.userType;
 
 
 }

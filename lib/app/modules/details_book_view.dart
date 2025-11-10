@@ -36,7 +36,7 @@ class DetailsView extends StatelessWidget {
                 onPressed: () {
                 //  Get.to(() => WebViewPage(url: book.previewLink.toString()));
                   //  Get.to(() => PdfReadView());
-                    Get.to(() => PdfdownloadView());
+                    Get.to(() => PdfDownloadView());
 
 
                 },

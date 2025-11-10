@@ -22,6 +22,9 @@ class BooksController extends GetxController {
     isLoading.value = false;
   }
 
+  
+
+
   Future<void> fetchBooks(String query) async {
     isLoading.value = true;
     final url =

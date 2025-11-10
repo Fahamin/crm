@@ -21,10 +21,10 @@ class PdfdownloadController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    initializePdf();
+
   }
 
-  Future<void> initializePdf() async {
+  Future<void> initializePdf(var pdfUrl) async {
     try {
       isLoading.value = true;
       errorMessage.value = '';
@@ -99,7 +99,4 @@ class PdfdownloadController extends GetxController {
     }
   }
 
-  void retry() {
-    initializePdf();
-  }
 }

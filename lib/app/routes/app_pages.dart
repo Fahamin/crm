@@ -26,6 +26,8 @@ import '../modules/pdfdownload/bindings/pdfdownload_binding.dart';
 import '../modules/pdfdownload/views/pdfdownload_view.dart';
 import '../modules/registration/bindings/registration_binding.dart';
 import '../modules/registration/views/registration_view.dart';
+import '../modules/studenbook/bindings/studenbook_binding.dart';
+import '../modules/studenbook/views/studenbook_view.dart';
 import '../modules/tabpage/bindings/tabpage_binding.dart';
 import '../modules/tabpage/views/tabpage_view.dart';
 import '../modules/video/bindings/video_binding.dart';
@@ -112,11 +114,15 @@ class AppPages {
       page: () => RegistrationView(),
       binding: RegistrationBinding(),
     ),
-
     GetPage(
       name: _Paths.PDFDOWNLOAD,
-      page: () => const PdfdownloadView(),
+      page: () => const PdfDownloadView(),
       binding: PdfdownloadBinding(),
+    ),
+    GetPage(
+      name: _Paths.STUDENBOOK,
+      page: () => const StudenbookView(),
+      binding: StudenbookBinding(),
     ),
   ];
 }

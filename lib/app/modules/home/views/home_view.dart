@@ -36,7 +36,7 @@ class HomeView extends GetView<HomeController> {
                     InkWell(
                         onTap: () async {
                           if (controller.userType == "1") {
-                            Get.toNamed(Routes.JOURNALCHOSE,
+                            Get.toNamed(Routes.STUDENBOOK,
                                 arguments: "Student");
                           } else {
                             Get.toNamed(Routes.TABPAGE);
