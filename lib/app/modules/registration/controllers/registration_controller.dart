@@ -44,7 +44,7 @@ class RegistrationController extends GetxController {
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         Get.snackbar("Success", "Registration Successful");
-        Get.offAllNamed(Routes.HOME);
+        Get.offAllNamed(Routes.LOGIN);
       } else {
         debugPrint(response.body);
         Get.snackbar("Error", "Invalid credentials");
