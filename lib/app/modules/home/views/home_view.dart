@@ -21,26 +21,30 @@ class HomeView extends GetView<HomeController> {
         child: Column(
           children: [
             SizedBox(height: 30),
-            DrAppbar(title: "Dr. Albert Stevano", image: "imagelink"),
+            DrAppbar(title: controller.userName.toString(), image: "imagelink"),
             Expanded(
               // <-- Takes remaining space
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    InkWell(
-                        onTap: () {
-                          Get.toNamed(Routes.FEEDBACK);
-                        },
-                        child: FeedBack("assets/images/mes.png", "FeedBack",
-                            "Share your thoughts, report issues, or suggest improvements to help us make the app better for you.")),
+                    controller.userType == "1"
+                        ? InkWell(
+                            onTap: () {
+                              Get.toNamed(Routes.STUDENBOOK);
+                            },
+                            child: FeedBack(
+                                "assets/images/mes.png",
+                                "MBBS BOOK",
+                                "You will find all MBBS books pdf here. You can read direct pdf of any year of book"))
+                        : InkWell(
+                            onTap: () {
+                              Get.toNamed(Routes.FEEDBACK);
+                            },
+                            child: FeedBack("assets/images/mes.png", "FeedBack",
+                                "Share your thoughts, report issues, or suggest improvements to help us make the app better for you.")),
                     InkWell(
                         onTap: () async {
-                          if (controller.userType == "1") {
-                            Get.toNamed(Routes.STUDENBOOK,
-                                arguments: "Student");
-                          } else {
-                            Get.toNamed(Routes.TABPAGE);
-                          }
+                          Get.toNamed(Routes.TABPAGE);
                         },
                         child: FeedBack(
                             "assets/images/infoi.png",

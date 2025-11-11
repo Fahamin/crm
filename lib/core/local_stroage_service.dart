@@ -11,11 +11,11 @@ class LocalStorageService {
   }
 
   // User preferences
-  Future<void> setUserToken(String token) async {
+  Future<void> setUserName(String token) async {
     await _preferences?.setString('user_token', token);
   }
 
-  String? get userToken => _preferences?.getString('user_token');
+  String? get userName => _preferences?.getString('user_token');
 
   Future<void> setUserType(String userId) async {
     await _preferences?.setString('user_id', userId);

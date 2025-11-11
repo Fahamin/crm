@@ -10,10 +10,10 @@ class HomeController extends GetxController {
     // TODO: implement onInit
     super.onInit();
     localStorageService = await LocalStorageService.getInstance();
-    localStorageService.setUserType("1");
   }
 
   String? get userType => localStorageService.userType;
+  String? get userName => localStorageService.userName;
 
 
 }
