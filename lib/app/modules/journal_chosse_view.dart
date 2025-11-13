@@ -32,7 +32,11 @@ class JournalChosse extends StatelessWidget {
                             "Organize thoughts, track progress, and document daily reflections or research insights in one place.")),
                     InkWell(
                         onTap: () async {
-                          Get.toNamed(Routes.BOOKS, arguments: Get.arguments);
+                          Get.toNamed(
+                            Routes.PDFDOWNLOAD,
+                            arguments:
+                            "http://www.elife.navanapharma.com/profile_image/${Get.arguments}.pdf",
+                          );
                         },
                         child: FeedBack("assets/images/book.png", "Book ",
                             "Browse, read, or manage a collection of books—track reading progress, take notes, and explore summaries.")),

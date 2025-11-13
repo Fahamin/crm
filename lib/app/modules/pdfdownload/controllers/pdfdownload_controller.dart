@@ -7,27 +7,25 @@ import 'package:path_provider/path_provider.dart';
 import 'package:pdfx/pdfx.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class PdfdownloadController extends GetxController {
-
- // static const pdfUrl = "https://firebasestorage.googleapis.com/v0/b/flutter-tv-ec77e.appspot.com/o/CommunityMedicinePark.pdf?alt=media&token=7f1348fc-2743-4ebb-a604-b1fdb2785893";
-  static const pdfUrl = "http://www.elife.navanapharma.com/profile_image/CRMPhysiologyGyton.pdf";
+class PdfDownloadController extends GetxController {
 
   RxBool isLoading = true.obs;
   RxString errorMessage = ''.obs;
   RxString localFilePath = ''.obs;
   RxDouble downloadProgress = 0.0.obs;
-  late PdfControllerPinch pdfController;
+  final Rxn<PdfControllerPinch> pdfController = Rxn<PdfControllerPinch>(); // Reactive nullable
 
   @override
   void onInit() {
     super.onInit();
-
+    initializePdf(Get.arguments);
   }
 
   Future<void> initializePdf(var pdfUrl) async {
     try {
       isLoading.value = true;
       errorMessage.value = '';
+      pdfController.value = null; // Reset controller
 
       final hasPermission = await requestStoragePermission();
       if (!hasPermission) {
@@ -43,17 +41,25 @@ class PdfdownloadController extends GetxController {
         return;
       }
 
-      localFilePath.value = path!;
-      isLoading.value = false;
+      localFilePath.value = path;
 
-      pdfController = PdfControllerPinch(
-        document: PdfDocument.openFile(localFilePath.value!),
+      // Assign to reactive controller
+      pdfController.value = PdfControllerPinch(
+        document: PdfDocument.openFile(localFilePath.value),
       );
+
+      isLoading.value = false;
 
     } catch (e) {
       errorMessage.value = "Error: ${e.toString()}";
       isLoading.value = false;
     }
+  }
+
+  @override
+  void onClose() {
+    pdfController.value?.dispose();
+    super.onClose();
   }
 
   Future<bool> requestStoragePermission() async {
@@ -83,7 +89,7 @@ class PdfdownloadController extends GetxController {
       final filePath = '${directory.path}/downloaded_pdf.pdf';
 
       await dio.download(
-        pdfUrl,
+        Get.arguments,
         filePath,
         onReceiveProgress: (received, total) {
           if (total != -1) {

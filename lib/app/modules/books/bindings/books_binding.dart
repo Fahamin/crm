@@ -9,8 +9,8 @@ class BooksBinding extends Bindings {
     Get.lazyPut<BooksController>(
       () => BooksController(),
     );
-    Get.lazyPut<PdfdownloadController>(
-          () => PdfdownloadController(),fenix: true
+    Get.lazyPut<PdfDownloadController>(
+          () => PdfDownloadController(),fenix: true
     );
   }
 }

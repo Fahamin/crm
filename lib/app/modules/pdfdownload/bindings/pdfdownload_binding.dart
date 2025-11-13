@@ -5,8 +5,8 @@ import '../controllers/pdfdownload_controller.dart';
 class PdfdownloadBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<PdfdownloadController>(
-      () => PdfdownloadController(),
+    Get.lazyPut<PdfDownloadController>(
+      () => PdfDownloadController(),
     );
   }
 }

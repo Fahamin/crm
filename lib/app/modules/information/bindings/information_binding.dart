@@ -9,8 +9,8 @@ class InformationBinding extends Bindings {
     Get.lazyPut<InformationController>(
       () => InformationController(),
     );
-    Get.lazyPut<PdfdownloadController>(
-          () => PdfdownloadController(),
+    Get.lazyPut<PdfDownloadController>(
+          () => PdfDownloadController(),
     );
   }
 }
