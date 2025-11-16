@@ -10,7 +10,7 @@ import '../../../../data/remote/auth_service.dart';
 class LoginController extends GetxController {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController emailController =
-      TextEditingController(text: "khossen20@gmail.com");
+      TextEditingController(text: "ff@gmail.com");
   final TextEditingController passwordController =
       TextEditingController(text: "123");
   var isLoading = false.obs;
@@ -25,7 +25,6 @@ class LoginController extends GetxController {
   }
 
   var allGranted = false.obs;
-
   Future<void> requestPermissions() async {
     Map<Permission, PermissionStatus> statuses = await [
       Permission.camera,

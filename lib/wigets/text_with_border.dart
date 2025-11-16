@@ -11,7 +11,7 @@ class TextWithBorder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      enabled: false,
+      enabled: true,
       style: TextStyle(color: Colors.white,
         fontWeight: FontWeight.w600,
         fontFamily: "Poppins",),

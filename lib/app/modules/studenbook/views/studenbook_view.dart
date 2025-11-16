@@ -198,7 +198,7 @@ class StudenbookView extends GetView<StudenbookController> {
                                       ),
                                     ),
                                     child: Text(
-                                      'Year ${book.yEAROF} Prof',
+                                      '${book.yEAROF} Prof',
                                       style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w500,
