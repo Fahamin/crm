@@ -58,12 +58,24 @@ class LoginView extends GetView<LoginController> {
                         CustomTextField(
                           controller: controller.emailController,
                           hintText: "Email",
+                          validator: (vale){
+                            if(vale == null || vale.trim().isEmpty){
+                              return "Email is required";
+                            }
+                            return null;
+                          },
                         ),
                         SizedBox(height: 15),
                         CustomTextField(
                           controller: controller.passwordController,
                           hintText: "Password",
                           obscureText: true,
+                          validator: (vale){
+                            if(vale == null || vale.trim().isEmpty){
+                              return "Password is required";
+                            }
+                            return null;
+                          },
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,

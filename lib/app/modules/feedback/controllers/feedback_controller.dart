@@ -1,7 +1,24 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/local_stroage_service.dart';
+
 class FeedbackController extends GetxController {
+
+  var localStorageService = Get.find<LocalStorageService>();
+
+  @override
+  Future<void> onInit() async {
+    // TODO: implement onInit
+    super.onInit();
+    localStorageService = await LocalStorageService.getInstance();
+  }
+
+  String? get userType => localStorageService.userType;
+  String? get userName => localStorageService.userName;
+
+
+
   var selectedQ1 = ''.obs;
   final List<String> q1 = ['Highly Satisfied', 'Satisfied', 'Need Improvement', 'Dissatisfied','Highly Dissatisfied'];
 

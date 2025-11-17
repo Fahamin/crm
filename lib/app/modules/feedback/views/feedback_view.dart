@@ -29,11 +29,14 @@ class FeedbackView extends GetView<FeedbackController> {
                     'https://55.unsplash.com/premium_photo-1750681051145-45991d0693ee?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8',
               ),
               ProfileImage(
-                  "https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"),
-              textNormal("Dr Nme", Colors.white, 25.0),
-              textNormal("Emt Specilist", Colors.white, 12.0),
+                imageLink:
+                    "https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
+                showEditButton: false,
+              ),
+              textNormal(controller.userName.toString(), Colors.white, 25.0),
+              textNormal("", Colors.white, 12.0),
               spaceHeight(8.0),
-              DoctorInfo("Dr Hadis", "ent", "4521", "Dhaka"),
+              DoctorInfo(controller.userName, "ent", "4521", "Dhaka"),
               spaceHeight(16.0),
               Expanded(
                   child: SingleChildScrollView(
@@ -88,7 +91,7 @@ class FeedbackView extends GetView<FeedbackController> {
                   ),
                   spaceHeight(5.0),
                   textNormalStart(
-                      "3.How Satisfied are you with the  amount that you’re receiving?",
+                      "3.How Satisfied are you with the amount that you’re receiving?",
                       Colors.white,
                       15.0),
                   Obx(

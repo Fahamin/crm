@@ -25,7 +25,12 @@ class RegistrationController extends GetxController {
   }
 
   Future<void> registration() async {
-    if (!formKey.currentState!.validate()) return;
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+    } else {
+      Get.snackbar("Error", "Please Enter All Data");
+      return;
+    }
 
     isLoading.value = true;
     if (selectedValue.value == "Yes") {

@@ -56,16 +56,35 @@ class RegistrationView extends GetView<RegistrationController> {
                         CustomTextField(
                           controller: controller.nameController,
                           hintText: "Name",
+                          validator: (value) {
+                            if (value == null || value.trim().isEmpty) {
+                              return "Name is required";
+                            }
+                            return null;
+                          },
+
                         ),
                         const SizedBox(height: 15),
                         CustomTextField(
                           controller: controller.emailController,
                           hintText: "Email",
+                          validator: (value) {
+                            if (value == null || value.trim().isEmpty) {
+                              return "Email is required";
+                            }
+                            return null;
+                          },
                         ),
                         const SizedBox(height: 15),
                         CustomTextField(
                           controller: controller.passwordController,
                           hintText: "Password",
+                          validator: (value) {
+                            if (value == null || value.trim().isEmpty) {
+                              return "Password is required";
+                            }
+                            return null;
+                          },
                           obscureText: true,
                         ),
                         const SizedBox(height: 15),

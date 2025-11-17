@@ -57,6 +57,8 @@ dependencies:
   shared_preferences: ^2.5.3
   flutter_file_dialog: ^3.0.2  # For MediaStore API
   file_saver: ^0.3.1
+  image_picker: ^1.2.1
+  get_storage: ^2.1.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

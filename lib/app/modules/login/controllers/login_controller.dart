@@ -25,6 +25,7 @@ class LoginController extends GetxController {
   }
 
   var allGranted = false.obs;
+
   Future<void> requestPermissions() async {
     Map<Permission, PermissionStatus> statuses = await [
       Permission.camera,
@@ -39,6 +40,13 @@ class LoginController extends GetxController {
   }
 
   Future<void> login() async {
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+    } else {
+      Get.snackbar("Error", "Please Enter All Data");
+      return;
+    }
+
     isLoading.value = true;
 
     try {
@@ -53,7 +61,8 @@ class LoginController extends GetxController {
         debugPrint(response.body);
 
         localStorageService.setUserType(model.user!.uSERTYPE.toString());
-        localStorageService.setUserName(model.user!.nAME .toString());
+        localStorageService.setUserName(model.user!.nAME.toString());
+        localStorageService.setUserEmail(model.user!.eMAIL.toString());
 
         Get.offAllNamed(Routes.HOME);
       } else {
