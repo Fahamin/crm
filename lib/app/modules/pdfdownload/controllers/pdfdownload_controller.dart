@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
@@ -8,12 +7,12 @@ import 'package:pdfx/pdfx.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class PdfDownloadController extends GetxController {
-
   RxBool isLoading = true.obs;
   RxString errorMessage = ''.obs;
   RxString localFilePath = ''.obs;
   RxDouble downloadProgress = 0.0.obs;
-  final Rxn<PdfControllerPinch> pdfController = Rxn<PdfControllerPinch>(); // Reactive nullable
+
+  final Rxn<PdfController> pdfController = Rxn<PdfController>();
 
   @override
   void onInit() {
@@ -25,7 +24,7 @@ class PdfDownloadController extends GetxController {
     try {
       isLoading.value = true;
       errorMessage.value = '';
-      pdfController.value = null; // Reset controller
+      pdfController.value = null;
 
       final hasPermission = await requestStoragePermission();
       if (!hasPermission) {
@@ -43,13 +42,11 @@ class PdfDownloadController extends GetxController {
 
       localFilePath.value = path;
 
-      // Assign to reactive controller
-      pdfController.value = PdfControllerPinch(
+      pdfController.value = PdfController(
         document: PdfDocument.openFile(localFilePath.value),
       );
 
       isLoading.value = false;
-
     } catch (e) {
       errorMessage.value = "Error: ${e.toString()}";
       isLoading.value = false;
@@ -67,18 +64,13 @@ class PdfDownloadController extends GetxController {
 
     final androidInfo = await DeviceInfoPlugin().androidInfo;
     if (androidInfo.version.sdkInt <= 32) {
-      final status = await Permission.storage.request();
-      return status.isGranted;
+      return (await Permission.storage.request()).isGranted;
     } else {
-      if (await Permission.manageExternalStorage.isGranted) {
-        return true;
-      }
+      if (await Permission.manageExternalStorage.isGranted) return true;
 
-      final mediaStatus = await Permission.photos.request();
-      if (mediaStatus.isGranted) return true;
+      if ((await Permission.photos.request()).isGranted) return true;
 
-      final status = await Permission.manageExternalStorage.request();
-      return status.isGranted;
+      return (await Permission.manageExternalStorage.request()).isGranted;
     }
   }
 
@@ -104,5 +96,4 @@ class PdfDownloadController extends GetxController {
       return null;
     }
   }
-
 }

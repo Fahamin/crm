@@ -1,6 +1,5 @@
 import 'package:crm/core/text_utils.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:pdfx/pdfx.dart';
 
@@ -39,10 +38,7 @@ class PdfDownloadView extends GetView<PdfDownloadController> {
         children: [
           CircularProgressIndicator(value: controller.downloadProgress.value),
           const SizedBox(height: 20),
-          textNormal(
-              'Preparing PDF... ${(controller.downloadProgress.value * 100).toStringAsFixed(1)}%',
-              Colors.white,
-              14.0)
+          textNormal('Preparing PDF... ${(controller.downloadProgress.value * 100).toStringAsFixed(1)}%', Colors.white, 15.0)
         ],
       ),
     );
@@ -70,19 +66,14 @@ class PdfDownloadView extends GetView<PdfDownloadController> {
     );
   }
 
-  Widget _buildPdfView(PdfControllerPinch pdfController) {
-    return PdfViewPinch(
+  /// ---------- Horizontal PDF View ---------------
+  Widget _buildPdfView(PdfController pdfController) {
+    return PdfView(
       controller: pdfController,
-      scrollDirection: Axis.vertical,
-      builders: PdfViewPinchBuilders<DefaultBuilderOptions>(
-        options: const DefaultBuilderOptions(),
-        documentLoaderBuilder: (_) =>
-            const Center(child: CircularProgressIndicator()),
-        pageLoaderBuilder: (_) =>
-            const Center(child: CircularProgressIndicator()),
-        errorBuilder: (_, error) =>
-            Center(child: Text('PDF Error: ${error.toString()}')),
-      ),
+      scrollDirection: Axis.horizontal,  // <--- Horizontal swipe
+      pageSnapping: true,
+      onPageChanged: (page) =>
+          debugPrint("Current page: $page"),
     );
   }
 }
