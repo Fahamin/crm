@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../../../core/colors.dart';
+import '../../../../wigets/appbar_title.dart';
 import '../../videoplayer.dart';
 import '../controllers/video_controller.dart';
 
@@ -16,10 +18,8 @@ class VideoView extends GetView<VideoController> {
     Future.microtask(() => controller.searchVideos(query));
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("$query Videos"),
-        centerTitle: true,
-      ),
+      backgroundColor: background,
+      appBar: AppbarTitle("Videos"),
       body: Column(
         children: [
           Obx(() {

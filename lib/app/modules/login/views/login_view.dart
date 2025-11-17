@@ -1,6 +1,6 @@
-
 import 'package:crm/core/text_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/colors.dart';
@@ -14,125 +14,130 @@ class LoginView extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: background,
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-            minHeight:
-                MediaQuery.of(context).size.height - 32, // 32 = 16*2 padding
+        body: AnnotatedRegion<SystemUiOverlayStyle>(
+          value: SystemUiOverlayStyle(
+            statusBarColor: background, // একই color status bar-এর জন্যও
+            statusBarIconBrightness: Brightness.light,
           ),
-          child: Center(
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.all(20),
-                  child: Form(
-                    key: controller.formKey,
-                    child: Column(
-                      children: [
-                        spaceHeight(35.0),
-                        Text(
-                          "Login here",
-                          style: TextStyle(
-                            color: Colors.blue,
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "Poppins",
-                          ),
-                        ),
-                        spaceHeight(35.0),
-                        SizedBox(
-                          width: 250,
-                          child: Center(
-                            child: textNormal(
-                              "Welcome back you've been missed!",
-                              Colors.white,
-                              20.0,
-                            ),
-                          ),
-                        ),
-                        spaceHeight(35.0),
-                        CustomTextField(
-                          controller: controller.emailController,
-                          hintText: "Email",
-                          validator: (vale){
-                            if(vale == null || vale.trim().isEmpty){
-                              return "Email is required";
-                            }
-                            return null;
-                          },
-                        ),
-                        SizedBox(height: 15),
-                        CustomTextField(
-                          controller: controller.passwordController,
-                          hintText: "Password",
-                          obscureText: true,
-                          validator: (vale){
-                            if(vale == null || vale.trim().isEmpty){
-                              return "Password is required";
-                            }
-                            return null;
-                          },
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
+          child: SingleChildScrollView(
+            padding: EdgeInsets.all(16.0),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: MediaQuery.of(context).size.height -
+                    32, // 32 = 16*2 padding
+              ),
+              child: Center(
+                child: Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(20),
+                      child: Form(
+                        key: controller.formKey,
+                        child: Column(
                           children: [
-                            TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                "Forgot Password?",
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "Poppins",
+                            spaceHeight(35.0),
+                            Text(
+                              "Login here",
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "Poppins",
+                              ),
+                            ),
+                            spaceHeight(35.0),
+                            SizedBox(
+                              width: 250,
+                              child: Center(
+                                child: textNormal(
+                                  "Welcome back you've been missed!",
+                                  Colors.white,
+                                  20.0,
                                 ),
                               ),
                             ),
+                            spaceHeight(35.0),
+                            CustomTextField(
+                              controller: controller.emailController,
+                              hintText: "Email",
+                              validator: (vale) {
+                                if (vale == null || vale.trim().isEmpty) {
+                                  return "Email is required";
+                                }
+                                return null;
+                              },
+                            ),
+                            SizedBox(height: 15),
+                            CustomTextField(
+                              controller: controller.passwordController,
+                              hintText: "Password",
+                              obscureText: true,
+                              validator: (vale) {
+                                if (vale == null || vale.trim().isEmpty) {
+                                  return "Password is required";
+                                }
+                                return null;
+                              },
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    "Forgot Password?",
+                                    style: TextStyle(
+                                      color: Colors.blue,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: "Poppins",
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 15),
+                            Obx(() {
+                              return controller.isLoading.value
+                                  ? CircularProgressIndicator()
+                                  : CustomButton(
+                                      "Login",
+                                      onPressed: () {
+                                        controller.login();
+                                      },
+                                    );
+                            }),
                           ],
                         ),
-                        SizedBox(height: 15),
-                        Obx(() {
-                          return controller.isLoading.value
-                              ? CircularProgressIndicator()
-                              : CustomButton(
-                                  "Login",
-                                  onPressed: () {
-                                     controller.login();
-                                  },
-                                );
-                        }),
+                      ),
+                    ),
+
+                    SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        textNormalBold(
+                            "Don't have an account?", Colors.blue, 14.0),
+                        TextButton(
+                          onPressed: () => Get.toNamed(Routes.REGISTRATION),
+                          child: textNormalBold('Register', Colors.blue, 16.0),
+                        ),
                       ],
                     ),
-                  ),
-                ),
 
-                SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    textNormalBold("Don't have an account?", Colors.blue, 14.0),
-                    TextButton(
-                      onPressed: () => Get.toNamed(Routes.REGISTRATION),
-                      child:  textNormalBold('Register',Colors.blue, 16.0),
+                    Center(
+                      child: Image.asset(
+                        "assets/images/np.png",
+                        width: 130,
+                      ),
                     ),
+                    // Add some bottom padding
                   ],
-                ),
-
-                Center(
-                  child: Image.asset(
-                    "assets/images/np.png",
-                    width: 130,
-                  ),
-                ),
-                // Add some bottom padding
-              ],
+                )
+              ),
             ),
-          ),
-        ),
-      ),
+          )),
     );
   }
 }

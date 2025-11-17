@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/colors.dart';
+import '../../../../wigets/appbar_title.dart';
 import '../../../routes/app_pages.dart';
 import '../../pdfdownload/views/pdfdownload_view.dart';
 import '../controllers/studenbook_controller.dart';
@@ -11,37 +13,8 @@ class StudenbookView extends GetView<StudenbookController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[50],
-      appBar: AppBar(
-        title: const Text(
-          'Medical Books',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-          ),
-        ),
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: Colors.blue[700],
-        foregroundColor: Colors.white,
-        actions: [
-          Container(
-            margin: const EdgeInsets.only(right: 8),
-            child: IconButton(
-              icon: Container(
-                padding: const EdgeInsets.all(6),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
-                  shape: BoxShape.circle,
-                ),
-                child: const Icon(Icons.refresh, size: 22),
-              ),
-              onPressed: () => controller.getStudentBooks(),
-              tooltip: 'Refresh',
-            ),
-          ),
-        ],
-      ),
+      backgroundColor: background,
+      appBar: AppbarTitle("MBBS BOOKS"),
       body: Obx(() {
         if (controller.isLoading.value) {
           return Center(

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../../../core/colors.dart';
+import '../../../../wigets/appbar_title.dart';
 import '../../details_book_view.dart';
 import '../controllers/books_controller.dart';
 
@@ -14,7 +16,8 @@ class BooksView extends GetView<BooksController> {
     Future.microtask(() => controller.fetchBooks(query));
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Medical Books")),
+      backgroundColor: background,
+      appBar: AppbarTitle("Medical Books"),
       body: Column(
         children: [
 

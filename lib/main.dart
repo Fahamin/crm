@@ -3,6 +3,8 @@ import 'package:crm/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'core/colors.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -23,6 +25,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.amber,
+        useMaterial3: true,
+      ),
       debugShowCheckedModeBanner: false,
       initialBinding: LoginBinding(),
       initialRoute: AppPages.INITIAL,

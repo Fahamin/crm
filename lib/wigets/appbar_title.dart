@@ -11,10 +11,10 @@ class AppbarTitle extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      iconTheme: IconThemeData(color: Colors.white),
       title: textNormalBold(value, Colors.white, 18.0),
       centerTitle: true,
       backgroundColor: background,
-      iconTheme: IconThemeData(color: Colors.white),
     );
   }
 

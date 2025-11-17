@@ -1,8 +1,11 @@
+import 'package:crm/core/text_utils.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:pdfx/pdfx.dart';
 
+import '../../../../core/colors.dart';
+import '../../../../wigets/appbar_title.dart';
 import '../controllers/pdfdownload_controller.dart';
 
 class PdfDownloadView extends GetView<PdfDownloadController> {
@@ -11,9 +14,8 @@ class PdfDownloadView extends GetView<PdfDownloadController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Books Viewer'),
-      ),
+      backgroundColor: background,
+      appBar: AppbarTitle("Books View"),
       body: Obx(() {
         if (controller.isLoading.value) {
           return _buildLoadingState();
@@ -25,8 +27,7 @@ class PdfDownloadView extends GetView<PdfDownloadController> {
 
         return Obx(() => controller.pdfController.value != null
             ? _buildPdfView(controller.pdfController.value!)
-            : _buildLoadingState()
-        );
+            : _buildLoadingState());
       }),
     );
   }
@@ -38,10 +39,10 @@ class PdfDownloadView extends GetView<PdfDownloadController> {
         children: [
           CircularProgressIndicator(value: controller.downloadProgress.value),
           const SizedBox(height: 20),
-          Text(
-            'Preparing PDF... ${(controller.downloadProgress.value * 100).toStringAsFixed(1)}%',
-            style: Get.textTheme.bodyMedium,
-          ),
+          textNormal(
+              'Preparing PDF... ${(controller.downloadProgress.value * 100).toStringAsFixed(1)}%',
+              Colors.white,
+              14.0)
         ],
       ),
     );
@@ -76,9 +77,9 @@ class PdfDownloadView extends GetView<PdfDownloadController> {
       builders: PdfViewPinchBuilders<DefaultBuilderOptions>(
         options: const DefaultBuilderOptions(),
         documentLoaderBuilder: (_) =>
-        const Center(child: CircularProgressIndicator()),
+            const Center(child: CircularProgressIndicator()),
         pageLoaderBuilder: (_) =>
-        const Center(child: CircularProgressIndicator()),
+            const Center(child: CircularProgressIndicator()),
         errorBuilder: (_, error) =>
             Center(child: Text('PDF Error: ${error.toString()}')),
       ),
